@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magyarázó videók – jelenetek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Elrendezés: sötét fejléc, alatta videónként jelenetsorok: képkocka balra, szöveg jobbra */
+  --bg:#F3F5F8; --surface:#FFFFFF; --ink:#1C2430; --muted:#5B6576; --line:#D9DEE6;
+  --stage:#141B27; --stage-ink:#E6E9EE; --kek:#1F7FA3; --sarga:#B37A0B;
+  --serif:"STIX Two Text","Cambria","Georgia",serif;
+  --sans:"Source Sans 3","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#121722; --surface:#1A2130; --ink:#E6E9EE; --muted:#9BA4B4; --line:#2C3546; --stage:#0C1119; --kek:#58C4DD; --sarga:#F4D35E; color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#121722; --surface:#1A2130; --ink:#E6E9EE; --muted:#9BA4B4; --line:#2C3546; --stage:#0C1119; --kek:#58C4DD; --sarga:#F4D35E; color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.05rem;line-height:1.6}
+a{color:var(--kek)}
+:focus-visible{outline:2px solid var(--sarga);outline-offset:3px;border-radius:4px}
+.fej{background:var(--stage);color:var(--stage-ink)}
+.fej-in{max-width:60rem;margin:0 auto;padding:2rem 1.5rem 1.8rem}
+.vissza{color:#B9C1CE;text-decoration:none;font-size:.95rem}
+.vissza:hover{color:#F4D35E}
+.fej h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;margin:.6rem 0 .5rem;text-wrap:balance}
+.fej p{color:#B9C1CE;max-width:40rem;margin:0}
+.ugras{display:flex;flex-wrap:wrap;gap:.4rem .6rem;margin:1.2rem 0 0;padding:0;list-style:none}
+.ugras a{display:inline-block;color:var(--stage-ink);text-decoration:none;border:1px solid #3A4558;border-radius:999px;padding:.2rem .8rem;font-size:.92rem}
+.ugras a:hover{border-color:#F4D35E;color:#F4D35E}
+main{max-width:60rem;margin:0 auto;padding:.5rem 1.5rem 4rem}
+.video{padding:2.4rem 0 1rem;border-bottom:1px solid var(--line)}
+.video:last-child{border-bottom:0}
+.video h2{font-family:var(--serif);font-weight:400;font-size:1.8rem;line-height:1.2;margin:0 0 .3rem;text-wrap:balance}
+.meta{color:var(--muted);margin:0;font-variant-numeric:tabular-nums}
+.megj{color:var(--muted);font-size:.95rem;margin:.1rem 0 1rem}
+.jelenetek{list-style:none;padding:0;margin:0}
+.jel{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:1.2rem;padding:1.1rem 0;border-top:1px solid var(--line)}
+.kocka{display:block;align-self:start;border-radius:6px;overflow:hidden;background:var(--stage);aspect-ratio:16/9;max-width:100%}
+.kocka img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.kocka:hover img{opacity:.85}
+.jel-szoveg{min-width:0}
+.jel-fej{margin:0;font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums;display:flex;gap:.6rem;align-items:baseline}
+.sorszam{font-family:var(--serif);font-size:1.1rem;color:var(--sarga)}
+.idopont{font-weight:600;text-decoration:none}
+.idopont:hover{text-decoration:underline}
+.jel h3{font-family:var(--serif);font-weight:600;font-size:1.15rem;line-height:1.3;margin:.1rem 0 .3rem}
+.reszlet{margin:0 0 .35rem;font-size:.95rem}
+.narracio{margin:0;color:var(--muted);font-size:.95rem;max-width:40rem}
+footer{max-width:60rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);font-size:.9rem}
+@media (max-width:640px){
+  .jel{grid-template-columns:1fr;gap:.6rem}
+  .kocka{max-width:24rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<!-- Generálja: _eszkozok/jelenetek_oldal.py — kézzel ne szerkeszd, a szkriptben javíts. -->
+<header class="fej">
+  <div class="fej-in">
+    <a class="vissza" href="./#mi">← Magyarázó videók 3b1b-stílusban</a>
+    <h1>A videók jelenetenként</h1>
+    <p>A YouTube-ra feltett videók felépítése: jelenetenként egy képkocka, a narráció szövege és egy időbélyeg. A képkockára vagy az időre kattintva a videó annál a jelenetnél indul.</p>
+    <ul class="ugras">
+      <li><a href="#husegprogram-jeghegye">A hűségprogram jéghegye</a></li>
+      <li><a href="#dontesi-fak">Döntési fák</a></li>
+      <li><a href="#hail-mary-kozertheto">Hail Mary: idődilatáció, közérthetően</a></li>
+      <li><a href="#kovasz">Mi történik a kovászban?</a></li>
+      <li><a href="#3b1b-stilus">A 3b1b-stílus, és hogyan készül</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <section class="video" id="husegprogram-jeghegye">
+    <h2>A hűségprogram jéghegye</h2>
+    <p class="meta">4:06 · 11 jelenet · Noémi és Tamás · adatelemzés, üzlet · <a href="https://youtu.be/vEFz8UD1M1I" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Az adatok szintetikusak (demó dashboard).</p>
+    <ol class="jelenetek">
+      <li class="jel" id="husegprogram-jeghegye-01">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=0" target="_blank" rel="noopener" aria-label="Harminchatezer tag, de hányan jönnek? – megnyitás a YouTube-on 0:00-nél"><img src="kepek/husegprogram-jeghegye/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Harminchatezer tag, de hányan jönnek?</h3>
+          
+          <p class="narracio">Egy szállodalánc büszkén jelenti: közel harminchatezer tagja van a hűségprogramnak. Jól hangzik. De hányan szálltak meg közülük valaha? Ez a videó egy demó adathalmazon mutatja meg, mi rejlik egy ilyen szám mögött.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-02">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=19" target="_blank" rel="noopener" aria-label="A jéghegy: aktív, foglaló, alvó – megnyitás a YouTube-on 0:19-nél"><img src="kepek/husegprogram-jeghegye/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=19" target="_blank" rel="noopener">0:19</a> <span class="hang">Tamás</span></p>
+          <h3>A jéghegy: aktív, foglaló, alvó</h3>
+          
+          <p class="narracio">A tagoknak csak a negyede, nyolcezer-kilencszázkét ember szállt meg legalább egyszer. Hat százaléknak van foglalása, de még nem érkezett meg. A többi, közel hetven százalék, alvó tag: beiratkozott, de soha nem jött el, és foglalása sincs. Ez a hűségprogram jéghegye: a látható rész kicsi, a nagy tömeg a víz alatt van.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-03">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=43" target="_blank" rel="noopener" aria-label="Szintenként: Silver, Gold, Platinum – megnyitás a YouTube-on 0:43-nél"><img src="kepek/husegprogram-jeghegye/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=43" target="_blank" rel="noopener">0:43</a> <span class="hang">Noémi</span></p>
+          <h3>Szintenként: Silver, Gold, Platinum</h3>
+          
+          <p class="narracio">Nézzük szintenként. A Silver tagok közel kilencven százaléka alvó. A Gold tagok több mint kétharmada megszállt már. A Platinum tagoknál szinte mindenki. A magasabb szint itt valódi aktivitást jelent.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-04">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=61" target="_blank" rel="noopener" aria-label="Legacy és organikus tagok – megnyitás a YouTube-on 1:01-nél"><img src="kepek/husegprogram-jeghegye/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=61" target="_blank" rel="noopener">1:01</a> <span class="hang">Tamás</span></p>
+          <h3>Legacy és organikus tagok</h3>
+          
+          <p class="narracio">A tagság két forrásból jön. A Legacy tagokat egy korábbi programból hozták át, az organikus tagok maguktól csatlakoztak. A Legacy tagok hetvennyolc százaléka Gold vagy Platinum, és majdnem a fele aktív. Az organikus tagoknál ez tizennyolc és huszonegy százalék. Az új belépők nagy része tehát feliratkozott, de még nem jött el.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-05">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=86" target="_blank" rel="noopener" aria-label="Hányszor jönnek vissza? – megnyitás a YouTube-on 1:26-nél"><img src="kepek/husegprogram-jeghegye/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=86" target="_blank" rel="noopener">1:26</a> <span class="hang">Noémi</span></p>
+          <h3>Hányszor jönnek vissza?</h3>
+          
+          <p class="narracio">Most nézzük azokat, akik legalább egyszer megszálltak. Közülük hatezer-hétszázharminchárman pontosan egyszer jöttek. Kétszer már csak ezerszáznegyvenhatan, három-négyszer négyszáztizennyolcan. Minden lépcsőfokon a vendégek nagy része lemorzsolódik.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-06">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=108" target="_blank" rel="noopener" aria-label="Mikor jártak utoljára? – megnyitás a YouTube-on 1:48-nél"><img src="kepek/husegprogram-jeghegye/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=108" target="_blank" rel="noopener">1:48</a> <span class="hang">Tamás</span></p>
+          <h3>Mikor jártak utoljára?</h3>
+          
+          <p class="narracio">És mikor jártak utoljára? Háromezer-százharmincnyolc vendég az elmúlt három hónapban. Négyezer-százhatvanöt viszont hat és tizenkét hónap között. Minél régebben járt valaki, annál kisebb az esély, hogy magától visszatér.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-07">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=126" target="_blank" rel="noopener" aria-label="Medián és teljes költés – megnyitás a YouTube-on 2:06-nél"><img src="kepek/husegprogram-jeghegye/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=126" target="_blank" rel="noopener">2:06</a> <span class="hang">Noémi</span></p>
+          <h3>Medián és teljes költés</h3>
+          
+          <p class="narracio">Itt jön egy meglepetés. Egy érkezés medián költése a Silver tagoknál ötszázhatvanhat euró, a Gold és Platinum tagoknál csak háromszázkilencvenöt körül. Közben a teljes költés közel kilencven százaléka Gold és Platinum tagoktól jön. Ez nem ellentmondás. A medián egyetlen érkezést ír le, az összeg viszont azt, hogy hányszor jönnek. A magas szintű tagok kisebb tételekben, de sokkal gyakrabban költenek.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-08">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=159" target="_blank" rel="noopener" aria-label="Hotelek szerinti koncentráció – megnyitás a YouTube-on 2:39-nél"><img src="kepek/husegprogram-jeghegye/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=159" target="_blank" rel="noopener">2:39</a> <span class="hang">Tamás</span></p>
+          <h3>Hotelek szerinti koncentráció</h3>
+          
+          <p class="narracio">A költés hotelek szerint is nagyon egyenlőtlen. A Thermal Spa Resort egymaga a teljes költés negyvennyolc százalékát hozza. Az első három hotel együtt közel kilencven százalékot. A többi hét hotel a hűségprogram szempontjából szinte láthatatlan.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-09">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=178" target="_blank" rel="noopener" aria-label="Hová mennek a vendégek? – megnyitás a YouTube-on 2:58-nél"><img src="kepek/husegprogram-jeghegye/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=178" target="_blank" rel="noopener">2:58</a> <span class="hang">Noémi</span></p>
+          <h3>Hová mennek a vendégek?</h3>
+          
+          <p class="narracio">Hová mennek a vendégek a legutóbbi szállásuk után? Akinek van következő foglalása, az legtöbbször ugyanabba a hotelbe tér vissza. A legvastagabb nyilak viszont nem egy másik hotelbe mutatnak, hanem a semmibe: ezeknek a vendégeknek nincs következő foglalásuk.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-10">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=199" target="_blank" rel="noopener" aria-label="Két célcsoport – megnyitás a YouTube-on 3:19-nél"><img src="kepek/husegprogram-jeghegye/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=199" target="_blank" rel="noopener">3:19</a> <span class="hang">Tamás</span></p>
+          <h3>Két célcsoport</h3>
+          
+          <p class="narracio">Mit kezdjünk ezzel? Két célcsoport rajzolódik ki. Az alvó Legacy tagoknál, kétezer-kilencszáztíz embernél, visszanyerő kampány kell: őket egyszer már megnyertük. A huszonnégyezer alvó organikus tagnál első szállásra szóló ajánlat: őket még soha nem láttuk vendégként.</p>
+        </div>
+      </li>
+      <li class="jel" id="husegprogram-jeghegye-11">
+        <a class="kocka" href="https://youtu.be/vEFz8UD1M1I?t=221" target="_blank" rel="noopener" aria-label="A tanulság – megnyitás a YouTube-on 3:41-nél"><img src="kepek/husegprogram-jeghegye/11.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">11.</span> <a class="idopont" href="https://youtu.be/vEFz8UD1M1I?t=221" target="_blank" rel="noopener">3:41</a> <span class="hang">Noémi</span></p>
+          <h3>A tanulság</h3>
+          
+          <p class="narracio">A tanulság: egy hűségprogram értékét nem a taglétszám adja, hanem az, hogy hányan jönnek vissza. A nagy szám a jéghegy teljes mérete, de az érték a víz fölötti részben van. És abban, mennyit tudunk felhozni a víz alól. Az adatok szintetikusak, de ez a minta sok valódi hűségprogramban ismerős.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="dontesi-fak">
+    <h2>Döntési fák</h2>
+    <p class="meta">3:43 · 11 jelenet · Noémi és Tamás · gépi tanulás · <a href="https://youtu.be/78hLQeSyJ6M" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">A fát a kód tanítja (CART), az eredmények valódiak.</p>
+    <ol class="jelenetek">
+      <li class="jel" id="dontesi-fak-01">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=0" target="_blank" rel="noopener" aria-label="Kérdéssor, amelyet az adat tanít – megnyitás a YouTube-on 0:00-nél"><img src="kepek/dontesi-fak/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Kérdéssor, amelyet az adat tanít</h3>
+          
+          <p class="narracio">Hogyan dönt egy szálloda, kinek küldjön ajánlatot? Gyakran egy egyszerű kérdéssorral: ha ez, akkor az. A döntési fa pontosan ilyen kérdéssor, csak a kérdéseket az adatokból tanulja meg.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-02">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=17" target="_blank" rel="noopener" aria-label="A példa: vendégek a síkon – megnyitás a YouTube-on 0:17-nél"><img src="kepek/dontesi-fak/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=17" target="_blank" rel="noopener">0:17</a> <span class="hang">Tamás</span></p>
+          <h3>A példa: vendégek a síkon</h3>
+          
+          <p class="narracio">Vegyünk egy példát. Minden pont egy vendég. A vízszintes tengelyen az eltöltött éjszakák száma, a függőlegesen az, hogy hány hónapja járt nálunk utoljára. A zöld pontok visszatértek, a pirosak nem. A cél: egy új vendégről megjósolni, melyik csoportba tartozik.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-03">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=39" target="_blank" rel="noopener" aria-label="Az első vágás – megnyitás a YouTube-on 0:39-nél"><img src="kepek/dontesi-fak/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=39" target="_blank" rel="noopener">0:39</a> <span class="hang">Noémi</span></p>
+          <h3>Az első vágás</h3>
+          
+          <p class="narracio">A fa első kérdése egyetlen egyenes vágás. Például: kevesebb mint hat hónapja járt nálunk? A sík két részre esik. Mindkét oldalon tisztább lett a kép, de alul még keveredik a két szín.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-04">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=57" target="_blank" rel="noopener" aria-label="Gini-index: mennyire kevert egy csoport? – megnyitás a YouTube-on 0:57-nél"><img src="kepek/dontesi-fak/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=57" target="_blank" rel="noopener">0:57</a> <span class="hang">Tamás</span></p>
+          <h3>Gini-index: mennyire kevert egy csoport?</h3>
+          
+          <p class="narracio">Honnan tudjuk, melyik vágás a legjobb? Mérni kell, mennyire kevert egy csoport. A Gini-index azt méri, mekkora eséllyel tévedünk, ha egy véletlen pontot a csoport arányai szerint, találomra címkézünk fel. Ha a csoport tiszta, nulla. Ha fele-fele arányú, akkor a legnagyobb: egy ketted.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-05">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=80" target="_blank" rel="noopener" aria-label="A legjobb vágás kiválasztása – megnyitás a YouTube-on 1:20-nél"><img src="kepek/dontesi-fak/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=80" target="_blank" rel="noopener">1:20</a> <span class="hang">Noémi</span></p>
+          <h3>A legjobb vágás kiválasztása</h3>
+          
+          <p class="narracio">A fa minden lehetséges vágást kipróbál, mindkét tengely mentén. Mindegyiknél kiszámolja a két oldal Gini-indexének súlyozott átlagát. Azt a vágást választja, amelyiknél ez a legkisebb. Ez egy mohó lépés: mindig a pillanatnyilag legjobbat választja.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-06">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=103" target="_blank" rel="noopener" aria-label="Ismétlés: a fa növekszik – megnyitás a YouTube-on 1:43-nél"><img src="kepek/dontesi-fak/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=103" target="_blank" rel="noopener">1:43</a> <span class="hang">Tamás</span></p>
+          <h3>Ismétlés: a fa növekszik</h3>
+          
+          <p class="narracio">Aztán ugyanezt megismétli mindkét részben, külön-külön. Minden új vágás egy új elágazás a fában. A sík egyre kisebb téglalapokra esik, és mindegyik téglalap egy-egy levél, egyetlen döntéssel.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-07">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=118" target="_blank" rel="noopener" aria-label="Döntés egy új vendégről – megnyitás a YouTube-on 1:58-nél"><img src="kepek/dontesi-fak/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=118" target="_blank" rel="noopener">1:58</a> <span class="hang">Noémi</span></p>
+          <h3>Döntés egy új vendégről</h3>
+          
+          <p class="narracio">Egy új vendégnél egyszerűen végigmegyünk a fán. Kevesebb mint hat hónapja járt nálunk? Igen. Több mint három éjszakát töltött? Igen. Akkor valószínűleg visszatér. A döntés minden lépése érthető és elmagyarázható.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-08">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=142" target="_blank" rel="noopener" aria-label="Túltanulás – megnyitás a YouTube-on 2:22-nél"><img src="kepek/dontesi-fak/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=142" target="_blank" rel="noopener">2:22</a> <span class="hang">Tamás</span></p>
+          <h3>Túltanulás</h3>
+          
+          <p class="narracio">Ha hagyjuk, a fa addig vág, amíg minden levél teljesen tiszta. Ilyenkor a véletlen zajra is külön szabályokat tanul. A tanító adatokon tökéletes, új adatokon viszont gyengébben teljesít, mint egy egyszerűbb fa. Ez a túltanulás.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-09">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=160" target="_blank" rel="noopener" aria-label="A fa visszafogása – megnyitás a YouTube-on 2:40-nél"><img src="kepek/dontesi-fak/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=160" target="_blank" rel="noopener">2:40</a> <span class="hang">Noémi</span></p>
+          <h3>A fa visszafogása</h3>
+          
+          <p class="narracio">A megoldás a fa visszafogása. Korlátozzuk a mélységét, vagy előírjuk, hogy egy levélben legalább hány pont legyen. Így a fa az általános mintát tanulja meg, nem az egyes pontokat.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-10">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=177" target="_blank" rel="noopener" aria-label="Ha számot kell jósolni: regressziós fa – megnyitás a YouTube-on 2:57-nél"><img src="kepek/dontesi-fak/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=177" target="_blank" rel="noopener">2:57</a> <span class="hang">Tamás</span></p>
+          <h3>Ha számot kell jósolni: regressziós fa</h3>
+          
+          <p class="narracio">És ha a fának egy számot kell megjósolnia, például a költést? Akkor a levél az ott lévő pontok átlagát adja vissza, és a vágást a hibák négyzetösszege alapján választjuk. Ugyanaz az ötlet, mint a legkisebb négyzetek módszerénél: lépcsős függvény a pontfelhőre.</p>
+        </div>
+      </li>
+      <li class="jel" id="dontesi-fak-11">
+        <a class="kocka" href="https://youtu.be/78hLQeSyJ6M?t=196" target="_blank" rel="noopener" aria-label="Véletlen erdő és gradient boosting – megnyitás a YouTube-on 3:16-nél"><img src="kepek/dontesi-fak/11.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">11.</span> <a class="idopont" href="https://youtu.be/78hLQeSyJ6M?t=196" target="_blank" rel="noopener">3:16</a> <span class="hang">Noémi</span></p>
+          <h3>Véletlen erdő és gradient boosting</h3>
+          
+          <p class="narracio">Egyetlen fa könnyen érthető, de érzékeny az adatokra. Ha sok fát építünk, mindegyiket kicsit más mintán, és szavaztatjuk őket, sokkal stabilabb előrejelzést kapunk. Ez a véletlen erdő. Ha pedig minden új fát az előzőek hibáinak javítására tanítunk, az a gradient boosting, az adatelemzés egyik legerősebb eszköze.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="hail-mary-kozertheto">
+    <h2>Hail Mary: idődilatáció, közérthetően</h2>
+    <p class="meta">3:15 · 10 jelenet · Noémi és Tamás · fizika · <a href="https://youtu.be/NehfKYpHto8" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Képletek nélkül, laikus közönségnek.</p>
+    <ol class="jelenetek">
+      <li class="jel" id="hail-mary-kozertheto-01">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=0" target="_blank" rel="noopener" aria-label="Tizenhárom év a Földön, négy a hajón – megnyitás a YouTube-on 0:00-nél"><img src="kepek/hail-mary-kozertheto/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Tizenhárom év a Földön, négy a hajón</h3>
+          
+          <p class="narracio">Képzelj el egy űrhajót, amely egy tizenkét fényévnyire lévő csillaghoz indul. Mire odaér, a Földön tizenhárom év telik el. Az űrhajósok viszont csak négy évet öregszenek. Ez nem tudományos-fantasztikus trükk, hanem valódi fizika. Nézzük meg, hogyan működik.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-02">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=23" target="_blank" rel="noopener" aria-label="Az út a Tau Cetihez – megnyitás a YouTube-on 0:23-nél"><img src="kepek/hail-mary-kozertheto/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=23" target="_blank" rel="noopener">0:23</a> <span class="hang">Tamás</span></p>
+          <h3>Az út a Tau Cetihez</h3>
+          
+          <p class="narracio">Andy Weir regényében, a Héjl Méri című könyvben pontosan ez történik. A hajó a Tau Céti nevű csillaghoz utazik, közel tizenkét fényévre. Az út első felében folyamatosan gyorsít. Félúton megfordul, és a második felében fékez, hogy meg tudjon állni.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-03">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=43" target="_blank" rel="noopener" aria-label="Gyorsabb a fénynél? – megnyitás a YouTube-on 0:43-nél"><img src="kepek/hail-mary-kozertheto/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=43" target="_blank" rel="noopener">0:43</a> <span class="hang">Noémi</span></p>
+          <h3>Gyorsabb a fénynél?</h3>
+          
+          <p class="narracio">Ha a hajó egy évig gyorsítana ilyen ütemben, a hétköznapi számolás szerint gyorsabb lenne a fénynél. A valóságban ez nem történhet meg. Valami más történik.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-04">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=59" target="_blank" rel="noopener" aria-label="A láthatatlan fal – megnyitás a YouTube-on 0:59-nél"><img src="kepek/hail-mary-kozertheto/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=59" target="_blank" rel="noopener">0:59</a> <span class="hang">Tamás</span></p>
+          <h3>A láthatatlan fal</h3>
+          
+          <p class="narracio">Minél gyorsabban megy a hajó, annál nehezebb még gyorsabbá tenni. A sebessége egyre közelebb kerül a fény sebességéhez, de soha nem éri el. Olyan, mintha egy láthatatlan fal állna előtte.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-05">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=74" target="_blank" rel="noopener" aria-label="A fényóra: lassabban járó idő – megnyitás a YouTube-on 1:14-nél"><img src="kepek/hail-mary-kozertheto/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=74" target="_blank" rel="noopener">1:14</a> <span class="hang">Noémi</span></p>
+          <h3>A fényóra: lassabban járó idő</h3>
+          
+          <p class="narracio">És itt jön a meglepő rész: a gyorsan mozgó órák lassabban járnak. Képzelj el egy órát, amelyben egy fénysugár pattog két tükör között. Ha az óra száguld, a fénynek ferdén, hosszabb utat kell megtennie. Ugyanannyi idő alatt kevesebbet üt. Az idő ott lassabban telik.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-06">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=98" target="_blank" rel="noopener" aria-label="Mennyivel lassabban? – megnyitás a YouTube-on 1:38-nél"><img src="kepek/hail-mary-kozertheto/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=98" target="_blank" rel="noopener">1:38</a> <span class="hang">Tamás</span></p>
+          <h3>Mennyivel lassabban?</h3>
+          
+          <p class="narracio">Mennyivel lassabban? Hétköznapi sebességeknél, még egy repülőgépen is, a különbség elhanyagolható. A fénysebesség felénél az óra már tizenöt százalékkal lassabb. Kilencven százaléknál kétszer lassabb. A fénysebesség kilencvenkilenc és fél százalékánál pedig tízszer.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-07">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=120" target="_blank" rel="noopener" aria-label="A leggyorsabb pillanat – megnyitás a YouTube-on 2:00-nél"><img src="kepek/hail-mary-kozertheto/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=120" target="_blank" rel="noopener">2:00</a> <span class="hang">Noémi</span></p>
+          <h3>A leggyorsabb pillanat</h3>
+          
+          <p class="narracio">A Héjl Méri félúton, a leggyorsabb pillanatában, a fénysebesség kilencvenkilenc és fél százalékával száguld. Ilyenkor egyetlen nap a fedélzeten tíz nap a Földön.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-08">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=135" target="_blank" rel="noopener" aria-label="A két óra az út során – megnyitás a YouTube-on 2:15-nél"><img src="kepek/hail-mary-kozertheto/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=135" target="_blank" rel="noopener">2:15</a> <span class="hang">Tamás</span></p>
+          <h3>A két óra az út során</h3>
+          
+          <p class="narracio">Kövessük végig a két órát. Az út elején és végén, amikor a hajó még lassú, szinte együtt járnak. A különbség az út közepén gyűlik össze, amikor a hajó a leggyorsabb. A végére a Földön tizenhárom év telik el, a hajón alig négy.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-09">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=153" target="_blank" rel="noopener" aria-label="Mit jelent ez az űrhajósoknak? – megnyitás a YouTube-on 2:33-nél"><img src="kepek/hail-mary-kozertheto/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=153" target="_blank" rel="noopener">2:33</a> <span class="hang">Noémi</span></p>
+          <h3>Mit jelent ez az űrhajósoknak?</h3>
+          
+          <p class="narracio">Mit jelent ez az űrhajósoknak? Csak négy évet kell kibírniuk, ami emberi léptékkel elviselhető. A Földön viszont addigra tizenhárom év telik el, és ha üzenetet küldenek haza, az még majdnem tizenkét évig utazik. Aki otthon maradt, közel huszonöt évet vár a hírre.</p>
+        </div>
+      </li>
+      <li class="jel" id="hail-mary-kozertheto-10">
+        <a class="kocka" href="https://youtu.be/NehfKYpHto8?t=177" target="_blank" rel="noopener" aria-label="Összefoglalás – megnyitás a YouTube-on 2:57-nél"><img src="kepek/hail-mary-kozertheto/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/NehfKYpHto8?t=177" target="_blank" rel="noopener">2:57</a> <span class="hang">Tamás</span></p>
+          <h3>Összefoglalás</h3>
+          
+          <p class="narracio">Összefoglalva: az idő nem mindenhol telik ugyanúgy. Minél gyorsabban mozog valami, annál lassabban jár az órája. A Héjl Méri legénysége ezt a saját bőrén tapasztalja meg: négy év alatt jutnak el oda, ahová a fénynek is tizenkét év kell.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="kovasz">
+    <h2>Mi történik a kovászban?</h2>
+    <p class="meta">4:41 · 11 jelenet · Noémi · ismeretterjesztő · <a href="https://youtu.be/U6nir6_a8RQ" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">A számok közelítő értékek és ökölszabályok.</p>
+    <ol class="jelenetek">
+      <li class="jel" id="kovasz-01">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=0" target="_blank" rel="noopener" aria-label="Bevezető – megnyitás a YouTube-on 0:00-nél"><img src="kepek/kovasz/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Bevezető</h3>
+          <p class="reszlet">liszt + víz, a mikrovilág, a hőmérséklet mint kezelőgomb</p>
+          <p class="narracio">Liszt, víz, és néhány nap várakozás. Élesztőt nem teszünk hozzá, mégis kenyér lesz belőle. Hogyan? A válasz egy apró ökoszisztéma, amely az üvegben él. És ennek az ökoszisztémának a legfontosabb kezelőgombja a hőmérséklet.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-02">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=21" target="_blank" rel="noopener" aria-label="A lakók – megnyitás a YouTube-on 0:21-nél"><img src="kepek/kovasz/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=21" target="_blank" rel="noopener">0:21</a> <span class="hang">Noémi</span></p>
+          <h3>A lakók</h3>
+          <p class="reszlet">~100:1 arány, méretkülönbség</p>
+          <p class="narracio">Két fő lakója van: a tejsavbaktériumok és a vadélesztők. A baktériumok vannak sokkal többen: nagyjából száz baktérium jut egy élesztősejtre. Az élesztősejt viszont jóval nagyobb, ezért a kelésben mégis övé a főszerep.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-03">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=39" target="_blank" rel="noopener" aria-label="A liszt enzimjei – megnyitás a YouTube-on 0:39-nél"><img src="kepek/kovasz/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=39" target="_blank" rel="noopener">0:39</a> <span class="hang">Noémi</span></p>
+          <h3>A liszt enzimjei</h3>
+          <p class="reszlet">amiláz: keményítő → maltóz</p>
+          <p class="narracio">De az első lépést nem ők teszik meg, hanem maga a liszt. Vízzel összekeverve felébrednek az enzimjei. Az amiláz a keményítő hosszú cukorláncait darabolja, és kettes egységeket, maltózt vág le róluk. Ez lesz a mikrobák fő tápláléka, mert szabad cukor alig van a lisztben.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-04">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=62" target="_blank" rel="noopener" aria-label="Munkamegosztás – megnyitás a YouTube-on 1:02-nél"><img src="kepek/kovasz/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=62" target="_blank" rel="noopener">1:02</a> <span class="hang">Noémi</span></p>
+          <h3>Munkamegosztás</h3>
+          <p class="reszlet">a baktérium hasít, glükózt enged át az élesztőnek</p>
+          <p class="narracio">És itt jön a legszebb rész: a munkamegosztás. A jellegzetes kovászélesztő a maltózt nem tudja bontani. A kovászbaktérium viszont igen: felvesz egy maltózt, kettéhasítja, az egyik felét felhasználja, a másikat, egy glükózt, kiengedi. Ezt pedig az élesztő már meg tudja enni. Nem versengenek, hanem egymásra épülnek.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-05">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=90" target="_blank" rel="noopener" aria-label="Termékek – megnyitás a YouTube-on 1:30-nél"><img src="kepek/kovasz/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=90" target="_blank" rel="noopener">1:30</a> <span class="hang">Noémi</span></p>
+          <h3>Termékek</h3>
+          <p class="reszlet">tejsav, ecetsav, CO₂, alkohol; pH 6 → 4</p>
+          <p class="narracio">Mit termelnek? A baktériumok tejsavat, egy részük ecetsavat is. A tejsav lágy, joghurtos savanyúságot ad, az ecetsav élesebbet. Az élesztők szén-dioxidot és alkoholt. A gáz felfújja a tésztát, a savak pedig lassan lenyomják a pH-t, nagyjából hatról négy környékére.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-06">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=115" target="_blank" rel="noopener" aria-label="A sav mint kapcsoló – megnyitás a YouTube-on 1:55-nél"><img src="kepek/kovasz/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=115" target="_blank" rel="noopener">1:55</a> <span class="hang">Noémi</span></p>
+          <h3>A sav mint kapcsoló</h3>
+          <p class="reszlet">fitáz, proteázok, a romlást okozók visszaszorulása</p>
+          <p class="narracio">A savasodás nem mellékhatás, hanem kapcsoló. Ahogy a pH esik, munkába állnak a liszt savkedvelő enzimjei. A fitáz felszabadítja az ásványi anyagokat. A proteázok a fehérjéket bontják, ezekből lesznek később az ízanyagok. A romlást okozó mikrobák viszont nem bírják a savat, és visszaszorulnak.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-07">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=141" target="_blank" rel="noopener" aria-label="Az időbeli ív – megnyitás a YouTube-on 2:21-nél"><img src="kepek/kovasz/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=141" target="_blank" rel="noopener">2:21</a> <span class="hang">Noémi</span></p>
+          <h3>Az időbeli ív</h3>
+          <p class="reszlet">térfogat és pH, csúcs, túlérés</p>
+          <p class="narracio">Nézzük mindezt időben. Etetés után egy rövid csend, aztán gyors szaporodás. A térfogat nő, a pH esik. Egy ponton fogy a táplálék, a kovász eléri a csúcsát, majd visszaesik. Ha tovább hagyjuk, a proteázok a glutént is szétbontják: a tészta túlérik, szétfolyik.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-08">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=166" target="_blank" rel="noopener" aria-label="Hőmérséklet ①: sebesség – megnyitás a YouTube-on 2:46-nél"><img src="kepek/kovasz/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=166" target="_blank" rel="noopener">2:46</a> <span class="hang">Noémi</span></p>
+          <h3>Hőmérséklet ①: sebesség</h3>
+          <p class="reszlet">a görbe összenyomódik (+8–10 °C ≈ 2×)</p>
+          <p class="narracio">És most a hőmérséklet. Az első hatása egyszerű: mindent gyorsít. Durva ökölszabályként nyolc-tíz fokkal melegebben a folyamat nagyjából kétszer olyan gyors. Ugyanaz a görbe melegben összenyomódik: hamarabb jön a csúcs, de hamarabb a túlérés is.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-09">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=187" target="_blank" rel="noopener" aria-label="Hőmérséklet ②: egyensúly – megnyitás a YouTube-on 3:07-nél"><img src="kepek/kovasz/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=187" target="_blank" rel="noopener">3:07</a> <span class="hang">Noémi</span></p>
+          <h3>Hőmérséklet ②: egyensúly</h3>
+          <p class="reszlet">baktérium- és élesztő-optimum, meleg / hűvös / hűtő</p>
+          <p class="narracio">A második hatása finomabb: eltolja az egyensúlyt. A tejsavbaktériumok a meleget szeretik, harminc fok körül vannak elemükben, a kovászélesztők kicsit hűvösebben. Melegben ezért több sav képződik, főleg tejsav: kerekebb, lágyabb savanyúság. Hűvösebben lassabb a savasodás, de az ecetsav aránya nő, élesebb lesz az íz. A hűtő szinte megállítja az egészet, de a savak lassan tovább gyűlnek.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-10">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=220" target="_blank" rel="noopener" aria-label="A sütőben – megnyitás a YouTube-on 3:40-nél"><img src="kepek/kovasz/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=220" target="_blank" rel="noopener">3:40</a> <span class="hang">Noémi</span></p>
+          <h3>A sütőben</h3>
+          <p class="reszlet">kemencerugás, pusztulás, csirizesedés, alkohol, Maillard</p>
+          <p class="narracio">Végül a sütő. Az első percekben az élesztők még egy utolsót dolgoznak, a gázok kitágulnak: ez a kemencerugás. Ötven-hatvan fok körül a mikrobák elpusztulnak. Hatvan-hetven fok között a keményítő csirizesedik, és megszilárdul a bél. Az alkohol elpárolog. A bél belseje száz fok alatt marad, a héj viszont jóval forróbb lesz. Száznegyven fok fölött beindul a Maillard-reakció: a cukrok és aminosavak, amelyeket a kovász készített elő, barnulnak és aromává válnak.</p>
+        </div>
+      </li>
+      <li class="jel" id="kovasz-11">
+        <a class="kocka" href="https://youtu.be/U6nir6_a8RQ?t=259" target="_blank" rel="noopener" aria-label="Összefoglaló – megnyitás a YouTube-on 4:19-nél"><img src="kepek/kovasz/11.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">11.</span> <a class="idopont" href="https://youtu.be/U6nir6_a8RQ?t=259" target="_blank" rel="noopener">4:19</a> <span class="hang">Noémi</span></p>
+          <h3>Összefoglaló</h3>
+          
+          <p class="narracio">Összefoglalva: az enzimek bontanak, a baktériumok savanyítanak, az élesztők felfújnak, és mindegyik a másik munkájára épít. A hőmérséklet pedig két gombot tekert egyszerre: a sebességet és az egyensúlyt. Aki ezt a kettőt érti, az már nem receptet követ, hanem kovászt nevel.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="3b1b-stilus">
+    <h2>A 3b1b-stílus, és hogyan készül</h2>
+    <p class="meta">5:23 · 14 jelenet · Noémi és Tamás · módszertan · <a href="https://youtu.be/znv4GBbIV24" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Két rész: a stílus (1–8.) és a készítés (9–14.).</p>
+    <ol class="jelenetek">
+      <li class="jel" id="3b1b-stilus-01">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=0" target="_blank" rel="noopener" aria-label="Bevezető – megnyitás a YouTube-on 0:00-nél"><img src="kepek/3b1b-stilus/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Bevezető</h3>
+          <p class="reszlet">a felismerhető felszín és a hat döntés</p>
+          <p class="narracio">Ha láttál már 3Blue1Brown-videót, valószínűleg azonnal felismered. Sötét háttér, lassan mozgó képletek, egy nyugodt hang. De mi az, ami ezt a stílust valóban működővé teszi? Nem a díszítés. Hat döntés, amelyek mind ugyanazt a célt szolgálják: hogy a néző maga jöjjön rá a dologra.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-02">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=25" target="_blank" rel="noopener" aria-label="Kérdés a definíció előtt – megnyitás a YouTube-on 0:25-nél"><img src="kepek/3b1b-stilus/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=25" target="_blank" rel="noopener">0:25</a> <span class="hang">Noémi</span></p>
+          <h3>Kérdés a definíció előtt</h3>
+          
+          <p class="narracio">Az első: a videó nem definícióval kezd, hanem kérdéssel. Mennyi egy plusz három plusz öt plusz hét? A definíció megmondja a választ. A kérdés viszont kíváncsivá tesz, és onnantól a néző velünk együtt keresi.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-03">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=45" target="_blank" rel="noopener" aria-label="Példa az általánosítás előtt (páratlan számok → négyzet) – megnyitás a YouTube-on 0:45-nél"><img src="kepek/3b1b-stilus/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=45" target="_blank" rel="noopener">0:45</a> <span class="hang">Noémi</span></p>
+          <h3>Példa az általánosítás előtt (páratlan számok → négyzet)</h3>
+          
+          <p class="narracio">A második: előbb a konkrét példa, csak utána az általános szabály. Rakjuk ki a páratlan számokat pontokból. Egy pont. Hozzá három: kettőször kettes négyzet. Hozzá öt: háromszor hármas. Hozzá hét: négyszer négyes. Mire leírjuk a képletet, a néző már látta, hogy igaz.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-04">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=73" target="_blank" rel="noopener" aria-label="Folyamatos átalakulás (képlet és alakzat morfolása, ugrás vs. átalakulás) – megnyitás a YouTube-on 1:13-nél"><img src="kepek/3b1b-stilus/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=73" target="_blank" rel="noopener">1:13</a> <span class="hang">Noémi</span></p>
+          <h3>Folyamatos átalakulás (képlet és alakzat morfolása, ugrás vs. átalakulás)</h3>
+          
+          <p class="narracio">A harmadik: semmi nem tűnik el és bukkan fel csak úgy. Ha egy képlet átalakul, a szem követi, melyik rész hová kerül. A négyzet nem lecserélődik körre, hanem átformálódik. Így a néző nem veszíti el a fonalat a lépések között.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-05">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=93" target="_blank" rel="noopener" aria-label="A szín jelentést hordoz ((a+b)² geometriailag) – megnyitás a YouTube-on 1:33-nél"><img src="kepek/3b1b-stilus/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=93" target="_blank" rel="noopener">1:33</a> <span class="hang">Noémi</span></p>
+          <h3>A szín jelentést hordoz ((a+b)² geometriailag)</h3>
+          
+          <p class="narracio">A negyedik: a szín jelentést hordoz, nem díszít. Ha a kék jelöli az egyik mennyiséget, akkor végig kék marad, a rajzon és a képletben is. A sárga a másikat, a zöld a kettő szorzatát. A sötét háttér pedig azért van, hogy ez a kevés szín világítson.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-06">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=116" target="_blank" rel="noopener" aria-label="Egyszerre egy dolog (zsúfolt dia vs. fókusz) – megnyitás a YouTube-on 1:56-nél"><img src="kepek/3b1b-stilus/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=116" target="_blank" rel="noopener">1:56</a> <span class="hang">Noémi</span></p>
+          <h3>Egyszerre egy dolog (zsúfolt dia vs. fókusz)</h3>
+          
+          <p class="narracio">Az ötödik: egyszerre csak egy dologra figyelünk. Egy zsúfolt dián minden egyszerre kiabál. Itt ami éppen nem fontos, az elhalványul, de nem tűnik el, hogy a kontextus megmaradjon. A képernyőn sosem több az információ, mint amennyit a hang épp elmond.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-07">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=138" target="_blank" rel="noopener" aria-label="A kép a mondatot követi (hang-idővonal, szünet) – megnyitás a YouTube-on 2:18-nél"><img src="kepek/3b1b-stilus/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=138" target="_blank" rel="noopener">2:18</a> <span class="hang">Noémi</span></p>
+          <h3>A kép a mondatot követi (hang-idővonal, szünet)</h3>
+          
+          <p class="narracio">A hatodik: a kép a mondatot követi. Ami elhangzik, az abban a pillanatban jelenik meg. A fontos gondolat után pedig jön egy kis szünet. Ez nem üresjárat: ekkor rakja össze a néző, amit látott.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-08">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=155" target="_blank" rel="noopener" aria-label="Összefoglaló – megnyitás a YouTube-on 2:35-nél"><img src="kepek/3b1b-stilus/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=155" target="_blank" rel="noopener">2:35</a> <span class="hang">Noémi</span></p>
+          <h3>Összefoglaló</h3>
+          
+          <p class="narracio">Összefoglalva: kérdés a definíció előtt, példa az általánosítás előtt, folyamatos átalakulás, jelentéssel bíró szín, egyszerre egy dolog, és a kép, ami a hangot követi. Egyik sem bonyolult. A stílus attól erős, hogy mind ugyanazt szolgálja: a megértést. Ez a videó is a Manimmel készült, azzal az animációs könyvtárral, amelyet Grant Sanderson eredetileg a saját videóihoz írt. Hogy pontosan hogyan, azt a második rész mutatja meg.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-09">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=191" target="_blank" rel="noopener" aria-label="A folyamat: kód → Manim → kép, szöveg → edge-tts → hang, ffmpeg → végleges – megnyitás a YouTube-on 3:11-nél"><img src="kepek/3b1b-stilus/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=191" target="_blank" rel="noopener">3:11</a> <span class="hang">Tamás</span></p>
+          <h3>A folyamat: kód → Manim → kép, szöveg → edge-tts → hang, ffmpeg → végleges</h3>
+          
+          <p class="narracio">Én pedig azt mutatom meg, hogyan készül egy ilyen videó. A folyamat két szálon fut. A kép Python-kódból készül, a Manim nevű könyvtárral. A hang szövegből, egy ingyenes felolvasóval. A kettőt végül az ffmpeg fűzi össze egyetlen videóvá.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-10">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=210" target="_blank" rel="noopener" aria-label="Manim: a jelenet egy Python-osztály (kód és eredmény egymás mellett) – megnyitás a YouTube-on 3:30-nél"><img src="kepek/3b1b-stilus/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=210" target="_blank" rel="noopener">3:30</a> <span class="hang">Tamás</span></p>
+          <h3>Manim: a jelenet egy Python-osztály (kód és eredmény egymás mellett)</h3>
+          
+          <p class="narracio">A Manimben minden jelenet egy Python-osztály. A construct metódusban leírjuk, mi jelenjen meg, a play paranccsal pedig azt, hogyan mozogjon. Ez a három sor létrehoz egy négyzetet, megrajzolja, majd körré alakítja. Nincs idővonal és nincs kézi kulcskocka: a mozgást a kód írja le, ezért pontosan megismételhető.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-11">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=232" target="_blank" rel="noopener" aria-label="Képletek: LaTeX → dvi → SVG → külön alakzatok – megnyitás a YouTube-on 3:52-nél"><img src="kepek/3b1b-stilus/11.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">11.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=232" target="_blank" rel="noopener">3:52</a> <span class="hang">Tamás</span></p>
+          <h3>Képletek: LaTeX → dvi → SVG → külön alakzatok</h3>
+          
+          <p class="narracio">A képletek LaTeX-ből jönnek. A Manim a képletet lefordíttatja a LaTeX-szel, az eredményt vektoros SVG-vé alakítja, és minden karakterből külön alakzat lesz. Ezért tud egy képlet darabjaiban átrendeződni: az x itt nem betű, hanem önálló objektum, amit meg lehet mozgatni és át lehet színezni.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-12">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=253" target="_blank" rel="noopener" aria-label="Hang: edge-tts, a két magyar hang, jelenetenkénti fájlok – megnyitás a YouTube-on 4:13-nél"><img src="kepek/3b1b-stilus/12.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">12.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=253" target="_blank" rel="noopener">4:13</a> <span class="hang">Tamás</span></p>
+          <h3>Hang: edge-tts, a két magyar hang, jelenetenkénti fájlok</h3>
+          
+          <p class="narracio">A hang az edge-tts nevű ingyenes eszközzel készül, amely a Microsoft Edge neurális felolvasóit használja. Nem kell hozzá regisztráció, sem API-kulcs. Magyarul két hang van: Noémi, akit az első részben hallottál, és Tamás, aki most beszél. A hang jelenetenként külön fájlba kerül, így egy mondat átírása után csak azt az egy részt kell újragenerálni.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-13">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=278" target="_blank" rel="noopener" aria-label="Összerakás: kimerevítés vagy csend, majd concat – megnyitás a YouTube-on 4:38-nél"><img src="kepek/3b1b-stilus/13.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">13.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=278" target="_blank" rel="noopener">4:38</a> <span class="hang">Tamás</span></p>
+          <h3>Összerakás: kimerevítés vagy csend, majd concat</h3>
+          
+          <p class="narracio">A kép és a hang ritkán pontosan egyforma hosszú. Az összerakó szkript ezért jelenetenként összeméri a kettőt. Ha a hang a hosszabb, a jelenet utolsó képkockája kimerevedik, amíg a mondat véget ér. Ha a kép, a hang végére csend kerül. Végül az ffmpeg a jeleneteket egyetlen fájllá fűzi.</p>
+        </div>
+      </li>
+      <li class="jel" id="3b1b-stilus-14">
+        <a class="kocka" href="https://youtu.be/znv4GBbIV24?t=300" target="_blank" rel="noopener" aria-label="Munkamódszer: külön renderelés, képkocka-ellenőrzés – megnyitás a YouTube-on 5:00-nél"><img src="kepek/3b1b-stilus/14.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">14.</span> <a class="idopont" href="https://youtu.be/znv4GBbIV24?t=300" target="_blank" rel="noopener">5:00</a> <span class="hang">Tamás</span></p>
+          <h3>Munkamódszer: külön renderelés, képkocka-ellenőrzés</h3>
+          
+          <p class="narracio">És a munkamódszer. Minden jelenet külön renderelődik, így egy hiba javításához nem kell az egész videót újragyártani. Renderelés után képkockákat nézünk meg, mert az átfedések és a csúszások ott derülnek ki, nem a kódban. Ez a videó is így készült: nyolc meg hat jelenet, három szkript, és sok kis javítás.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+</main>
+<footer>
+  <p>Kérdés vagy ötlet egy videóhoz: Udvari István, adatelemzés.</p>
+</footer>
+</body>
+</html>
