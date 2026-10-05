@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magyarázó videók 3b1b-stílusban</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --ink:#1C2430; --muted:#5B6576; --line:#D9DEE6;
+  --stage:#141B27; --stage-ink:#E6E9EE;
+  --kek:#1F7FA3; --sarga:#B37A0B; --zold:#437E2F; --piros:#BC3F35; --lila:#7A55B8;
+  --dot-kek:#58C4DD; --dot-sarga:#F4D35E; --dot-zold:#83C167; --dot-feher:#E6E9EE;
+  --serif:"STIX Two Text","Cambria","Georgia",serif;
+  --sans:"Source Sans 3","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121722; --surface:#1A2130; --ink:#E6E9EE; --muted:#9BA4B4; --line:#2C3546;
+    --stage:#0C1119; --kek:#58C4DD; --sarga:#F4D35E; --zold:#83C167; --piros:#FC6255; --lila:#B79CED; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121722; --surface:#1A2130; --ink:#E6E9EE; --muted:#9BA4B4; --line:#2C3546;
+  --stage:#0C1119; --kek:#58C4DD; --sarga:#F4D35E; --zold:#83C167; --piros:#FC6255; --lila:#B79CED; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.075rem;line-height:1.6}
+a{color:var(--kek)}
+:focus-visible{outline:2px solid var(--sarga);outline-offset:3px;border-radius:4px}
+
+.hero{background:var(--stage);color:var(--stage-ink)}
+.hero-in{max-width:68rem;margin:0 auto;padding:3.5rem 1.5rem 3rem;display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:center}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.12;margin:0 0 1rem;letter-spacing:-0.01em}
+.hero p{color:#B9C1CE;max-width:34rem;margin:0 0 1rem}
+.hero .kerdes{font-family:var(--serif);font-style:italic;color:var(--dot-sarga);font-size:1.25rem}
+.stage{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.stage svg{width:min(100%,300px);height:auto}
+.egyenlet{font-family:var(--serif);font-size:1.6rem;min-height:2.2rem;color:var(--stage-ink)}
+.egyenlet .n{color:var(--dot-sarga)}
+.ujra{font:inherit;font-size:.95rem;color:var(--stage-ink);background:transparent;border:1px solid #3A4558;border-radius:999px;padding:.35rem 1rem;cursor:pointer}
+.ujra:hover{border-color:var(--dot-sarga);color:var(--dot-sarga)}
+.felirat{font-size:.9rem;color:#8A94A5;text-align:center;max-width:22rem}
+
+main{max-width:44rem;margin:0 auto;padding:1rem max(1rem,1.5rem) 4rem}
+section{padding:2.6rem 0 .6rem;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--serif);font-weight:400;font-size:1.85rem;line-height:1.2;margin:0 0 .9rem}
+h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:1.6rem 0 .4rem}
+p{margin:0 0 1rem}
+.halk{color:var(--muted)}
+
+.peldak{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:1.2rem 0}
+.pelda{background:var(--surface);padding:1rem 1.2rem;display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem}
+.pelda b{font-weight:600}
+.pelda b a{color:inherit;text-decoration-color:var(--kek);text-underline-offset:3px}
+.pelda b a:hover{color:var(--kek)}
+.pelda span{color:var(--muted);font-size:.95rem}
+.pelda em{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-size:.9rem;color:var(--muted);white-space:nowrap}
+
+.elvek{list-style:none;padding:0;margin:1.2rem 0;counter-reset:e}
+.elvek li{counter-increment:e;display:grid;grid-template-columns:2.2rem 1fr;gap:.2rem .8rem;padding:.9rem .4rem;border-top:1px solid var(--line);transition:opacity .25s}
+.elvek li::before{content:counter(e);font-family:var(--serif);font-size:1.6rem;line-height:1;color:var(--sarga);grid-row:1/3}
+.elvek li b{font-weight:600}
+.elvek li span{color:var(--muted);grid-column:2}
+@media (hover:hover){
+  .elvek:hover li{opacity:.28}
+  .elvek li:hover{opacity:1}
+}
+.elvek:focus-within li{opacity:.28}
+.elvek li:focus-within,.elvek li:focus{opacity:1}
+.tipp{font-size:.92rem;color:var(--muted);margin-top:-.4rem}
+
+.szinkod{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin:.8rem 0 1.2rem;font-size:.95rem}
+.szinkod span{display:inline-flex;align-items:center;gap:.45rem}
+.szinkod i{width:.85rem;height:.85rem;border-radius:3px;display:inline-block}
+
+.ket{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1rem 0}
+.ket h3{margin-top:0}
+.ket ul{margin:0;padding-left:1.1rem}
+.ket li{margin:.3rem 0}
+
+.lepesek{list-style:none;padding:0;margin:1.2rem 0;counter-reset:l;position:relative}
+.lepesek li{counter-increment:l;position:relative;padding:0 0 1.3rem 3rem}
+.lepesek li::before{content:counter(l);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;border:1.5px solid var(--kek);color:var(--kek);display:grid;place-items:center;font-family:var(--serif);background:var(--bg)}
+.lepesek li::after{content:"";position:absolute;left:1rem;top:2rem;bottom:.2rem;border-left:1.5px solid var(--line)}
+.lepesek li:last-child::after{display:none}
+.lepesek b{display:block;font-weight:600}
+.lepesek li>span{color:var(--muted)}
+
+
+.hely{display:flex;flex-wrap:wrap;gap:.4rem .5rem;margin:.9rem 0 1.4rem;padding:0;list-style:none}
+.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;line-height:1.3;border:1px solid var(--line);border-radius:999px;padding:.12rem .65rem;background:var(--surface);color:var(--ink);white-space:nowrap}
+.chip::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--c,var(--muted))}
+.chip.chat{--c:var(--kek)} .chip.code{--c:var(--zold)} .chip.py{--c:var(--sarga)} .chip.felho{--c:var(--lila)} .chip.ember{--c:transparent}
+.chip.ember::before{border:1.5px solid var(--muted)}
+.lepesek .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.35rem 0 .3rem}
+.lepesek .ki{display:block;font-size:.92rem;color:var(--muted);margin-top:.25rem}
+.lepesek code,.halk code,td code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.88em;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:0 .3rem;overflow-wrap:anywhere}
+.szakasz{font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 .2rem}
+.megj{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1rem 1.2rem;margin:1.2rem 0}
+.megj p:last-child{margin-bottom:0}
+
+.csatornak{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.98rem}
+.tabla{overflow-x:auto;min-width:0}
+.csatornak th,.csatornak td{text-align:left;vertical-align:top;padding:.65rem .6rem;border-bottom:1px solid var(--line)}
+.csatornak th{font-weight:600;color:var(--muted);font-size:.9rem}
+.csatornak tbody tr:hover{background:var(--surface)}
+
+.figyelj{list-style:none;padding:0;margin:1rem 0}
+.figyelj li{padding:.7rem 0 .7rem 1rem;border-left:3px solid var(--piros);margin:.6rem 0;background:linear-gradient(to right,color-mix(in srgb,var(--piros) 7%,transparent),transparent 60%)}
+.figyelj b{font-weight:600}
+
+footer{max-width:44rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);font-size:.9rem}
+
+@media (max-width:760px){
+  .hero-in{grid-template-columns:1fr;padding-top:2.4rem}
+  .ket{grid-template-columns:1fr}
+  .pelda{grid-template-columns:1fr}
+  .pelda em{grid-row:auto;grid-column:1}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <h1>Magyarázó videók, amelyek megértetnek – nem csak mutatnak</h1>
+      <p class="kerdes">Mennyi 1 + 3 + 5 + 7?</p>
+      <p>Mielőtt kiszámolnád, nézd meg a pontokat. Ez a fajta magyarázat a 3Blue1Brown YouTube-csatorna stílusa, és ezen az oldalon azt mutatjuk meg, mikor és hogyan érdemes használni a mi anyagainkban.</p>
+      <p>Az útmutató marketingeseknek szól: mire jó a műfaj, hogyan készül egy ilyen videó, és hol érdemes megosztani. Az ötletet Andrej Karpathy egy X-posztja adta – a forrásokat az oldal alján találod.</p>
+    </div>
+    <div class="stage">
+      <svg id="racs" viewBox="0 0 220 220" role="img" aria-label="Páratlan számok pontokból: 1, 3, 5 és 7 pont egy-egy újabb szegélyt rak a négyzetre"></svg>
+      <div class="egyenlet" id="egyenlet" aria-live="polite">&nbsp;</div>
+      <button class="ujra" id="ujra" type="button">Újra</button>
+      <p class="felirat">Minden új páratlan szám egy újabb szegélyt rak a négyzetre. Mire leírnánk a képletet, már látszik, hogy igaz.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="mi">
+  <h2>Mi ez a műfaj?</h2>
+  <p>Rövid, 2–5 perces animált videó narrációval. A háttér sötét, a képen kevés, de jelentéssel bíró szín van, és minden pontosan akkor jelenik meg, amikor a hang beszél róla. Nem díszített diasor és nem reklámfilm: a cél az, hogy a néző a végén értsen valamit, amit az elején nem értett.</p>
+  <p>Az eddig YouTube-ra feltett videók:</p>
+  <div class="peldak">
+    <div class="pelda"><b><a href="https://youtu.be/vEFz8UD1M1I" target="_blank" rel="noopener">A hűségprogram jéghegye</a></b><span>Mi van egy hűségprogram összesített számai mögött, szegmensenként. Szemléltető adatokkal.</span><em>adatelemzés, üzlet</em></div>
+    <div class="pelda"><b><a href="https://youtu.be/78hLQeSyJ6M" target="_blank" rel="noopener">Döntési fák</a></b><span>Hogyan tanul meg egy gép kérdéseket feltenni az adatoknak.</span><em>gépi tanulás</em></div>
+    <div class="pelda"><b><a href="https://youtu.be/NehfKYpHto8" target="_blank" rel="noopener">Hail Mary: idődilatáció, közérthetően</a></b><span>Miért telik másképp az idő egy közel fénysebességgel haladó űrhajón. Képletek nélkül.</span><em>fizika</em></div>
+    <div class="pelda"><b><a href="https://youtu.be/U6nir6_a8RQ" target="_blank" rel="noopener">Mi történik a kovászban?</a></b><span>Baktériumok, élesztők, enzimek, és mit tesz hozzá a hőmérséklet.</span><em>ismeretterjesztő</em></div>
+    <div class="pelda"><b><a href="https://youtu.be/znv4GBbIV24" target="_blank" rel="noopener">A 3b1b-stílus, és hogyan készül</a></b><span>A hat elv, majd egy rövid kulisszák mögötti rész.</span><em>módszertan</em></div>
+  </div>
+  <h3>Honnan a név?</h3>
+  <p>A 3Blue1Brown (röviden 3b1b) Grant Sanderson matematikai YouTube-csatornája. A név a jobb szemére utal: szektorális heterokrómiája van, vagyis az íriszének különböző cikkei különböző színűek – nagyjából háromnegyede kék, egynegyede barna. A csatorna logója ezt a szemet ábrázolja. <a href="https://www.3blue1brown.com/faq/" target="_blank" rel="noopener">A készítő saját magyarázata (3Blue1Brown GYIK)</a></p>
+  <h3>Hogyan készülnek a 3b1b stílusú videók?</h3>
+  <p>A mi videóink Python-alapú animációs eszközzel és mesterséges intelligenciával készült magyar narrációval jönnek létre. A lépéseket és azt, hogy melyik hol fut, a <a href="#keszul">Hogyan készül?</a> rész mutatja.</p>
+</section>
+
+<section id="elvek">
+  <h2>Miért működik? Hat döntés</h2>
+  <p>A felismerhető külső – sötét háttér, mozgó képletek – csak a felszín. A hatást ez a hat döntés adja, és mind ugyanazt szolgálja: hogy a néző maga jöjjön rá a dologra.</p>
+  <ol class="elvek">
+    <li tabindex="0"><b>Kérdés a definíció előtt</b><span>Egy kérdéssel indítunk, nem a válasszal. A kérdés kíváncsivá tesz, a definíció csak közöl.</span></li>
+    <li tabindex="0"><b>Példa az általánosítás előtt</b><span>Előbb egy konkrét eset – egy ügyfél, egy termék, egy nap –, csak utána az átlag vagy a szabály.</span></li>
+    <li tabindex="0"><b>Folyamatos átalakulás</b><span>Semmi nem ugrik. Az összesen szétválik szegmensekre, az oszlopból vízesés lesz – a szem végig követi.</span></li>
+    <li tabindex="0"><b>A szín jelentést hordoz</b><span>Minden fogalom kap egy színt, és végig megtartja. A néző nem böngészi a jelmagyarázatot.</span></li>
+    <li tabindex="0"><b>Egyszerre egy dolog</b><span>Ami épp nem fontos, elhalványul, de ott marad. Most is ezt látod, ha egy sorra viszed az egeret.</span></li>
+    <li tabindex="0"><b>A kép a mondatot követi</b><span>Ami elhangzik, az abban a pillanatban jelenik meg – és a fontos gondolat után jön egy kis szünet.</span></li>
+  </ol>
+  <p class="tipp">Az 5. elv működés közben: vidd az egeret (vagy a fókuszt) bármelyik sorra.</p>
+
+  <h3>A szín mint jelentés – egy példa</h3>
+  <p>A kovászos videóban a színek végig ugyanazt jelentik, így a harmadik percben sem kell magyarázni, mi micsoda:</p>
+  <div class="szinkod" aria-label="A kovászos videó színkódja">
+    <span><i style="background:#5CD0B3"></i>tejsavbaktérium</span>
+    <span><i style="background:#F4D35E"></i>élesztő</span>
+    <span><i style="background:#B79CED"></i>liszt-enzimek</span>
+    <span><i style="background:#FF9F5A"></i>tejsav</span>
+    <span><i style="background:#FC6255"></i>ecetsav / pH</span>
+    <span><i style="background:#7EC8F2"></i>szén-dioxid</span>
+  </div>
+</section>
+
+<section id="mire">
+  <h2>Mire jó – és mire nem?</h2>
+  <div class="ket">
+    <div>
+      <h3>Jól működik</h3>
+      <ul>
+        <li>Folyamatok és mechanizmusok: hogyan működik egy program, egy szolgáltatás, egy termék.</li>
+        <li>Számok és összefüggések: mitől nőtt vagy esett egy mutató, mi hat mire.</li>
+        <li>Meglepő vagy ellentmondásosnak tűnő eredmények, amelyeket egy diagram önmagában nem magyaráz meg.</li>
+        <li>Visszatérő tartalom: képzés, onboarding, egy pitch kulcsdiája.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Kevésbé</h3>
+      <ul>
+        <li>Hangulat- és imázsfilm: ott a fotó, a zene és az emberek a fontosak.</li>
+        <li>Árnyalt, szóbeli érvelés, ahol nincs mit lerajzolni.</li>
+        <li>Heti riport: oda elég egy jól felépített diasor.</li>
+        <li>Nagyon gyors határidő, amikor nincs idő visszajelzési körre.</li>
+      </ul>
+    </div>
+  </div>
+  <p><b>Gyors próba:</b> ha elnémítanád a videót, mondana-e még valamit a kép? Ha nem, a téma valószínűleg nem ehhez a műfajhoz való.</p>
+</section>
+
+<section id="uzlet">
+  <h2>Üzleti prezentációban: a válasz jön előre</h2>
+  <p>A 3Blue1Brown a választ a végére tartogatja, mert a kíváncsiság viszi végig a nézőt. Egy döntéshozó viszont az elején akarja hallani a lényeget. Ezért üzleti anyagban ezt a sorrendet követjük:</p>
+  <ol class="lepesek">
+    <li><b>Az üzleti kérdés</b><span>„Miért esett a hűségprogram aktivitása a második negyedévben?”</span></li>
+    <li><b>Azonnal a válasz</b><span>„Főleg egy szegmens miatt – és nem az, amelyikre gondolnánk.”</span></li>
+    <li><b>Utána a „miért”, 3b1b-módon</b><span>Egy konkrét ügyfél útja, a teljes szám szétválása szegmensekre, végig ugyanazokkal a színekkel.</span></li>
+  </ol>
+  <p class="halk">Ugyanezek az elvek videó nélkül is működnek: a PowerPoint fokozatos felépítésével és a Morph áttűnéssel egy élő prezentáció is sokat profitál belőlük.</p>
+</section>
+
+<section id="keszul">
+  <h2>Hogyan készül?</h2>
+  <p>Egy videó kilenc lépésben áll össze. A munka négy helyen fut, és mindegyiknek megvan az oka: ahol a legolcsóbb gondolkodni, ahol a gép a legjobban dolgozik, és ahol emberi döntés kell.</p>
+  <ul class="hely" aria-label="Végrehajtási helyszínek">
+    <li class="chip chat">Claude-chat (claude.ai)</li>
+    <li class="chip code">Claude Code a saját gépen</li>
+    <li class="chip py">Python a saját gépen</li>
+    <li class="chip felho">Felhő (GitHub Actions)</li>
+    <li class="chip ember">Ember dönt</li>
+  </ul>
+
+  <p class="szakasz">Tartalom</p>
+  <ol class="lepesek">
+    <li><b>Téma és üzenet</b>
+      <span class="chips"><span class="chip ember">Ember</span><span class="chip chat">Claude-chat</span></span>
+      <span>Mit kell megértenie a nézőnek a végére, kinek szól, és mi a kiinduló kérdés.</span>
+      <span class="ki">Kimenet: egy mondatos cél és a közönség.</span></li>
+    <li><b>Jelenetlista és színkód</b>
+      <span class="chips"><span class="chip chat">Claude-chat</span><span class="chip ember">Jóváhagyás</span></span>
+      <span>8–14 jelenet, mindegyikben egy gondolat, 15–30 másodperc. Minden fogalom kap egy színt. Itt a legolcsóbb változtatni.</span>
+      <span class="ki">Kimenet: jelenetlista, színtáblázat.</span></li>
+    <li><b>A narráció szövege</b>
+      <span class="chips"><span class="chip chat">Claude-chat</span><span class="chip ember">Tartalomgazda ellenőriz</span></span>
+      <span>Jelenetenként a felolvasandó szöveg, egyszerű, beszélt mondatokban. A számokat a tartalomgazda nézi át.</span>
+      <span class="ki">Kimenet: <code>szoveg.py</code> (egy szöveglista, Python-fájlba írva).</span></li>
+  </ol>
+
+  <p class="szakasz">Gyártás</p>
+  <ol class="lepesek" start="4" style="counter-reset:l 3">
+    <li><b>Hang generálása</b>
+      <span class="chips"><span class="chip py">Python, saját gép</span></span>
+      <span>Egy szkript felolvastatja a szöveget a Microsoft neurális hangjával, és mondatonként feljegyzi, mikor kezdődik. Ehhez igazodik majd a kép.</span>
+      <span class="ki">Parancs: <code>python narracio.py</code> · Kimenet: hangfájl jelenetenként + időzítés (<code>idok.json</code>). · A claude.ai sandbox ezt a hangszolgáltatást letiltja, ezért fut helyben.</span></li>
+    <li><b>Jelenetek megírása</b>
+      <span class="chips"><span class="chip code">Claude Code</span></span>
+      <span>Claude megírja az animációt (Manim, Python), jelenetenként. Minden elem akkor jelenik meg, amikor a hozzá tartozó mondat elhangzik. Egy gyors próbafuttatás pár másodperc alatt kiszűri a kódhibákat.</span>
+      <span class="ki">Kimenet: <code>jelenetek.py</code>.</span></li>
+    <li><b>Renderelés és összefűzés</b>
+      <span class="chips"><span class="chip felho">Felhő</span></span>
+      <span>A projekt felkerül egy privát GitHub-tárolóba. A GitHub gépei jelenetenként párhuzamosan elkészítik a képet hanggal együtt 1080p-ben, majd egy videóvá fűzik.</span>
+      <span class="ki">Idő: 6–10 perc (saját gépen 30–50 perc lenne, és közben foglalt a gép). · Kimenet: kész mp4.</span></li>
+    <li><b>Képkocka-ellenőrzés és javítás</b>
+      <span class="chips"><span class="chip code">Claude Code</span><span class="chip ember">Ember</span></span>
+      <span>Jelenetenként egy-egy kimerevített kockából kontaktlap készül. Claude és ember is átnézi: átfedő feliratok, kilógó szöveg, rossz szín. Javítás után újra a felhő renderel.</span>
+      <span class="ki">Jellemzően 1–3 kör, egy kör kb. 8 perc.</span></li>
+  </ol>
+
+  <p class="szakasz">Kiadás</p>
+  <ol class="lepesek" start="8" style="counter-reset:l 7">
+    <li><b>Borítókép és nyilvántartás</b>
+      <span class="chips"><span class="chip py">Python, saját gép</span></span>
+      <span>Egy szkript YouTube-borítót készít (cím + a legjobb képkocka), egy másik frissíti a videók összesítő táblázatát.</span>
+      <span class="ki">Parancs: <code>python boritok.py</code>, <code>python osszesito.py</code> · Kimenet: 1280×720-as PNG, Excel-sor.</span></li>
+    <li><b>Publikálás</b>
+      <span class="chips"><span class="chip ember">Ember</span></span>
+      <span>Feltöltés kézzel (YouTube Studio, LinkedIn), cím, leírás, borító. A közzétételt mindig ember kapcsolja be.</span></li>
+  </ol>
+
+  <div class="megj">
+    <p><b>Mi miért fut ott, ahol?</b></p>
+    <p>A chat a gondolkodásra jó: vázlat, szöveg, visszajelzés. A végső lépések viszont fájlokkal dolgoznak (hang, videó, kép), és olyan programokat igényelnek, amelyek a chatben nem futnak vagy nem érnek el a hálózatra. Ezért kerülnek a saját gépre vagy a felhőbe. A Claude Code a saját gépen ugyanazt a projektmappát látja, így a 4–8. lépést egy helyről lehet vezérelni.</p>
+  </div>
+
+  <h3>Hová kerül a tartalom?</h3>
+  <div class="tabla">
+  <table class="csatornak">
+    <thead><tr><th>Helyszín</th><th>Mi kerül oda</th><th>Kié a szerver</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip chat">Claude</span></td><td>téma, szöveg, kód, kontaktlapok</td><td>Anthropic</td></tr>
+      <tr><td><span class="chip py">Hangszolgáltatás</span></td><td>a narráció szövege</td><td>Microsoft (céges tartalomnál a cég saját Azure-szolgáltatása)</td></tr>
+      <tr><td><span class="chip felho">GitHub Actions</span></td><td>kód, hangfájlok, kész videó</td><td>GitHub / Microsoft (bizalmas tartalomnál céges gép)</td></tr>
+      <tr><td><span class="chip code">Saját gép</span></td><td>minden fájl</td><td>saját</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="halk">A videókat egyelőre központilag készítjük. Ha van egy témád, keress meg, és a vázlatot együtt beszéljük át.</p>
+</section>
+
+<section id="megosztas">
+  <h2>Hol érdemes megosztani?</h2>
+  <div class="tabla">
+  <table class="csatornak">
+    <thead><tr><th>Csatorna</th><th>Mire jó</th><th>Tipp</th></tr></thead>
+    <tbody>
+      <tr><td>LinkedIn</td><td>szakmai közönség elérése</td><td>Töltsd fel a videót közvetlenül, ne linkként – a feltöltött videót a LinkedIn jobban terjeszti.</td></tr>
+      <tr><td>YouTube</td><td>állandó tárhely, beágyazás weboldalba</td><td>Reklám bármikor megjelenhet előtte, és a végén más videókat ajánl.</td></tr>
+      <tr><td>Facebook-csoportok</td><td>témaspecifikus közösségek</td><td>Itt a beégetett felirat a legfontosabb.</td></tr>
+      <tr><td>Saját weboldal</td><td>portfólió, esettanulmány</td><td>Reklám és ajánlók nélkül, teljes kontroll.</td></tr>
+      <tr><td>Belső felületek</td><td>képzés, onboarding, ügyfélspecifikus tartalom</td><td>Bizalmas tartalom csak ide kerüljön.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><b>Felirat mindig legyen.</b> A közösségi oldalakon a videók nagy részét hang nélkül görgetik végig. A narráció szövege és mondatonkénti időzítése megvan, ebből a felirat elkészíthető.</p>
+</section>
+
+<section id="figyelj">
+  <h2>Mire figyelj?</h2>
+  <ul class="figyelj">
+    <li><b>Ügyféladat nem kerülhet nyilvános videóba.</b> Ügyfélspecifikus elemzésből csak belső változat készülhet, valós számok helyett szükség esetén szemléltető adatokkal.</li>
+    <li><b>Bizalmas szöveget jelezz előre.</b> A narrációt mesterséges hang készíti. A nyilvános videókhoz ingyenes szolgáltatást használunk, bizalmas tartalomhoz viszont a cég saját, szerződött szolgáltatását kell.</li>
+    <li><b>Ne sugalld, hogy a 3Blue1Brown-hoz van köze.</b> A „3Blue1Brown-stílusú” megjelölés rendben van, de a cím és a leírás ne keltsen ilyen benyomást.</li>
+    <li><b>A számok legyenek ellenőrizve.</b> Egy szép animáció a hibás számot is meggyőzővé teszi. A végleges változat előtt a tartalomgazda nézze át.</li>
+  </ul>
+</section>
+
+<section id="forrasok">
+  <h2>Források és köszönet</h2>
+  <p>Ez a módszer mások munkájára épül. Nagy tisztelettel és köszönettel feléjük:</p>
+  <div class="peldak">
+    <div class="pelda"><b><a href="https://www.3blue1brown.com/" target="_blank" rel="noopener">Grant Sanderson – 3Blue1Brown</a></b><span>A műfaj megteremtője, és a Manim animációs eszközé, amelyet eredetileg a saját videóihoz írt. A stílus tőle ered.</span><em>a stílus</em></div>
+    <div class="pelda"><b><a href="https://x.com/karpathy/status/2105819303471976479" target="_blank" rel="noopener">Andrej Karpathy posztja az X-en (2026. október 2.)</a></b><span>Arról írt, hogyan érdemes a nyelvi modellek kimenetét befogadhatóbbá tenni, és a testre szabott magyarázó videót nevezte meg a legígéretesebb formának – egy „3b1b style video explainer” példapromttal. Ez a projekt innen indult.</span><em>az inspiráció</em></div>
+    <div class="pelda"><b><a href="https://www.manim.community/" target="_blank" rel="noopener">Manim Community</a></b><span>A Manim nyílt forráskódú, közösségi változata (MIT licenc), ezzel készültek a videók.</span><em>az eszköz</em></div>
+  </div>
+  <p class="halk">A videóink nem állnak kapcsolatban a 3Blue1Brown-nal; a „3Blue1Brown-stílusú” megjelölés a forrást jelöli, nem együttműködést.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Kérdés vagy ötlet egy videóhoz: Udvari István, adatelemzés.</p>
+</footer>
+
+<script>
+(function(){
+  var svg=document.getElementById('racs'), eq=document.getElementById('egyenlet');
+  var ns='http://www.w3.org/2000/svg', s=48, o=38;
+  var szinek=['var(--dot-feher)','var(--dot-kek)','var(--dot-zold)','var(--dot-sarga)'];
+  var lepes=[['1','1'],['1 + 3','2'],['1 + 3 + 5','3'],['1 + 3 + 5 + 7','4']];
+  var idok=[];
+  var csokkent=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function torol(){idok.forEach(clearTimeout);idok=[];while(svg.firstChild)svg.removeChild(svg.firstChild);}
+  function pont(i,j,c,kesl){
+    var d=document.createElementNS(ns,'circle');
+    d.setAttribute('cx',o+j*s); d.setAttribute('cy',220-o-i*s); d.setAttribute('r',csokkent?13:0);
+    d.setAttribute('fill',c); svg.appendChild(d);
+    if(!csokkent){idok.push(setTimeout(function(){d.style.transition='r .35s ease-out';d.setAttribute('r',13);},kesl));}
+  }
+  function felirat(n,k){eq.innerHTML=lepes[n][0]+' = <span class="n">'+lepes[n][1]+'²</span>';}
+  function indit(){
+    torol(); eq.innerHTML='&nbsp;';
+    for(var n=1;n<=4;n++){
+      (function(n){
+        var t0=csokkent?0:(n-1)*1500+300, k=0;
+        for(var i=0;i<n;i++)for(var j=0;j<n;j++){
+          if(Math.max(i,j)===n-1){pont(i,j,szinek[n-1],t0+k*90);k++;}
+        }
+        if(csokkent)felirat(n-1);
+        else idok.push(setTimeout(function(){felirat(n-1);},t0+k*90+200));
+      })(n);
+    }
+  }
+  document.getElementById('ujra').addEventListener('click',indit);
+  indit();
+
+})();
+</script>
+</body>
+</html>
