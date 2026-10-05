@@ -151,7 +151,7 @@ footer{max-width:44rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
 <section id="mi">
   <h2>Mi ez a műfaj?</h2>
   <p>Rövid, 2–5 perces animált videó narrációval. A háttér sötét, a képen kevés, de jelentéssel bíró szín van, és minden pontosan akkor jelenik meg, amikor a hang beszél róla. Nem díszített diasor és nem reklámfilm: a cél az, hogy a néző a végén értsen valamit, amit az elején nem értett.</p>
-  <p>Az eddig YouTube-ra feltett videók:</p>
+  <p>Az eddig YouTube-ra feltett videók. Ezek általános, nyilvános témájú videók, és a privát Claude-fiókban készültek. A céges Claude-dal készülő videók jórészt ügyfélanyagok lesznek, ezért azok nem kerülnek nyilvános felületre.</p>
   <div class="peldak">
     <div class="pelda"><b><a href="https://youtu.be/vEFz8UD1M1I" target="_blank" rel="noopener">A hűségprogram jéghegye</a></b><span>Mi van egy hűségprogram összesített számai mögött, szegmensenként. Szemléltető adatokkal.</span><em>adatelemzés, üzlet</em></div>
     <div class="pelda"><b><a href="https://youtu.be/78hLQeSyJ6M" target="_blank" rel="noopener">Döntési fák</a></b><span>Hogyan tanul meg egy gép kérdéseket feltenni az adatoknak.</span><em>gépi tanulás</em></div>
@@ -228,7 +228,7 @@ footer{max-width:44rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
 
 <section id="keszul">
   <h2>Hogyan készül?</h2>
-  <p>Egy videó kilenc lépésben áll össze. A munka négy helyen fut, és mindegyiknek megvan az oka: ahol a legolcsóbb gondolkodni, ahol a gép a legjobban dolgozik, és ahol emberi döntés kell.</p>
+  <p>Egy videó tíz lépésben áll össze. A munka négy helyen fut, és mindegyiknek megvan az oka: ahol a legolcsóbb gondolkodni, ahol a gép a legjobban dolgozik, és ahol emberi döntés kell.</p>
   <ul class="hely" aria-label="Végrehajtási helyszínek">
     <li class="chip chat">Claude-chat (claude.ai)</li>
     <li class="chip code">Claude Code a saját gépen</li>
@@ -279,14 +279,18 @@ footer{max-width:44rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
       <span class="chips"><span class="chip py">Python, saját gép</span></span>
       <span>Egy szkript YouTube-borítót készít (cím + a legjobb képkocka), egy másik frissíti a videók összesítő táblázatát.</span>
       <span class="ki">Parancs: <code>python boritok.py</code>, <code>python osszesito.py</code> · Kimenet: 1280×720-as PNG, Excel-sor.</span></li>
+    <li><b>Végleges változat a GitHubon</b>
+      <span class="chips"><span class="chip code">Claude Code</span><span class="chip felho">GitHub</span></span>
+      <span>A javított forrás (szöveg, jelenetek, hang, időzítés) a videó privát tárolójába kerül, így a videó később bármikor újrarenderelhető vagy átírható.</span>
+      <span class="ki">Parancs: <code>git push</code> · A tároló linkje bekerül az összesítő táblázatba.</span></li>
     <li><b>Publikálás</b>
       <span class="chips"><span class="chip ember">Ember</span></span>
-      <span>Feltöltés kézzel (YouTube Studio, LinkedIn), cím, leírás, borító. A közzétételt mindig ember kapcsolja be.</span></li>
+      <span>Feltöltés kézzel (YouTube Studio, LinkedIn), cím, leírás, borító. A közzétételt mindig ember kapcsolja be. Ez a nyilvános, általános videókra vonatkozik: ügyfélanyag csak belső felületre kerülhet.</span></li>
   </ol>
 
   <div class="megj">
     <p><b>Mi miért fut ott, ahol?</b></p>
-    <p>A chat a gondolkodásra jó: vázlat, szöveg, visszajelzés. A végső lépések viszont fájlokkal dolgoznak (hang, videó, kép), és olyan programokat igényelnek, amelyek a chatben nem futnak vagy nem érnek el a hálózatra. Ezért kerülnek a saját gépre vagy a felhőbe. A Claude Code a saját gépen ugyanazt a projektmappát látja, így a 4–8. lépést egy helyről lehet vezérelni.</p>
+    <p>A chat a gondolkodásra jó: vázlat, szöveg, visszajelzés. A végső lépések viszont fájlokkal dolgoznak (hang, videó, kép), és olyan programokat igényelnek, amelyek a chatben nem futnak vagy nem érnek el a hálózatra. Ezért kerülnek a saját gépre vagy a felhőbe. A Claude Code a saját gépen ugyanazt a projektmappát látja, így a 4–9. lépést egy helyről lehet vezérelni.</p>
   </div>
 
   <h3>Hová kerül a tartalom?</h3>
