@@ -61,6 +61,8 @@ p{margin:0 0 1rem}
 .pelda b a{color:inherit;text-decoration-color:var(--kek);text-underline-offset:3px}
 .pelda b a:hover{color:var(--kek)}
 .pelda span{color:var(--muted);font-size:.95rem}
+.csoport{font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:1.6rem 0 -.6rem}
+.pelda em a{color:var(--kek)}
 .pelda em{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-size:.9rem;color:var(--muted);white-space:nowrap}
 
 .elvek{list-style:none;padding:0;margin:1.2rem 0;counter-reset:e}
@@ -152,14 +154,36 @@ footer{max-width:44rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
   <h2>Mi ez a műfaj?</h2>
   <p>Rövid, 2–5 perces animált videó narrációval. A háttér sötét, a képen kevés, de jelentéssel bíró szín van, és minden pontosan akkor jelenik meg, amikor a hang beszél róla. Nem díszített diasor és nem reklámfilm: a cél az, hogy a néző a végén értsen valamit, amit az elején nem értett.</p>
   <p>Az eddig YouTube-ra feltett videók. Ezek általános, nyilvános témájú videók, és a privát Claude-fiókban készültek. A céges Claude-dal készülő videók jórészt ügyfélanyagok lesznek, ezért azok nem kerülnek nyilvános felületre.</p>
+  <p class="halk">Témák szerint csoportosítva. A cím a videó jeleneteihez visz (képkocka, időbélyeg, a narráció szövege), a YouTube-link mellette van.</p>
+  <!-- videolista:eleje -->
+  <h4 class="csoport">Adatelemzés és üzlet</h4>
   <div class="peldak">
-    <div class="pelda"><b><a href="https://youtu.be/vEFz8UD1M1I" target="_blank" rel="noopener">A hűségprogram jéghegye</a></b><span>Mi van egy hűségprogram összesített számai mögött, szegmensenként. Szemléltető adatokkal.</span><em>adatelemzés, üzlet</em></div>
-    <div class="pelda"><b><a href="https://youtu.be/78hLQeSyJ6M" target="_blank" rel="noopener">Döntési fák</a></b><span>Hogyan tanul meg egy gép kérdéseket feltenni az adatoknak.</span><em>gépi tanulás</em></div>
-    <div class="pelda"><b><a href="https://youtu.be/NehfKYpHto8" target="_blank" rel="noopener">Hail Mary: idődilatáció, közérthetően</a></b><span>Miért telik másképp az idő egy közel fénysebességgel haladó űrhajón. Képletek nélkül.</span><em>fizika</em></div>
-    <div class="pelda"><b><a href="https://youtu.be/U6nir6_a8RQ" target="_blank" rel="noopener">Mi történik a kovászban?</a></b><span>Baktériumok, élesztők, enzimek, és mit tesz hozzá a hőmérséklet.</span><em>ismeretterjesztő</em></div>
-    <div class="pelda"><b><a href="https://youtu.be/znv4GBbIV24" target="_blank" rel="noopener">A 3b1b-stílus, és hogyan készül</a></b><span>A hat elv, majd egy rövid kulisszák mögötti rész.</span><em>módszertan</em></div>
+    <div class="pelda"><b><a href="jelenetek.html#husegprogram-jeghegye">A hűségprogram jéghegye</a></b><span>Mi van egy hűségprogram összesített számai mögött, szegmensenként. Szemléltető adatokkal.</span><em>4:06 · 11 jelenet · <a href="https://youtu.be/vEFz8UD1M1I" target="_blank" rel="noopener">YouTube ↗</a></em></div>
   </div>
-  <p class="halk">Jelenetenként, képkockával, időbélyeggel és a narráció szövegével: <a href="jelenetek.html">a videók jelenetei</a>.</p>
+  <h4 class="csoport">Statisztika</h4>
+  <div class="peldak">
+    <div class="pelda"><b><a href="jelenetek.html#legkisebb-negyzetek">A legkisebb négyzetek módszere</a></b><span>Melyik egyenes illeszkedik a legjobban a pontokra, és miért pont négyzetek?</span><em>3:44 · 11 jelenet · <a href="https://youtu.be/AEQCj7JjloI" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+    <div class="pelda"><b><a href="jelenetek.html#atlag-vagy-median">Átlag vagy medián?</a></b><span>Egymillió az átlagfizetés, a többség mégis kevesebbet keres. Mikor melyiket nézzük?</span><em>3:13 · 10 jelenet · <a href="https://youtu.be/U8awo3h7Ndk" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+    <div class="pelda"><b><a href="jelenetek.html#simpson-paradoxon">A Simpson-paradoxon</a></b><span>Mindkét csoportban jobb, összesítve mégis rosszabb. Valódi orvosi adatokon.</span><em>3:04 · 10 jelenet · <a href="https://youtu.be/KiODGQWArGQ" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+  </div>
+  <h4 class="csoport">Gépi tanulás</h4>
+  <div class="peldak">
+    <div class="pelda"><b><a href="jelenetek.html#dontesi-fak">Döntési fák</a></b><span>Hogyan tanul meg egy gép kérdéseket feltenni az adatoknak.</span><em>3:43 · 11 jelenet · <a href="https://youtu.be/78hLQeSyJ6M" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+  </div>
+  <h4 class="csoport">Tudomány és ismeretterjesztés</h4>
+  <div class="peldak">
+    <div class="pelda"><b><a href="jelenetek.html#hail-mary-kozertheto">Hail Mary: idődilatáció, közérthetően</a></b><span>Miért telik másképp az idő egy közel fénysebességgel haladó űrhajón. Képletek nélkül.</span><em>3:15 · 10 jelenet · <a href="https://youtu.be/NehfKYpHto8" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+    <div class="pelda"><b><a href="jelenetek.html#kovasz">Mi történik a kovászban?</a></b><span>Baktériumok, élesztők, enzimek, és mit tesz hozzá a hőmérséklet.</span><em>4:41 · 11 jelenet · <a href="https://youtu.be/U6nir6_a8RQ" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+  </div>
+  <h4 class="csoport">Zene</h4>
+  <div class="peldak">
+    <div class="pelda"><b><a href="jelenetek.html#pentaton-ot-forma">A pentaton skála öt formája</a></b><span>Az á-moll pentaton öt fogása a gitár nyakán, és hogyan kapcsolódnak egymáshoz.</span><em>3:34 · 12 jelenet · <a href="https://youtu.be/UqNv2mZWvU4" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+  </div>
+  <h4 class="csoport">Módszertan</h4>
+  <div class="peldak">
+    <div class="pelda"><b><a href="jelenetek.html#3b1b-stilus">A 3b1b-stílus, és hogyan készül</a></b><span>A hat elv, majd egy rövid kulisszák mögötti rész.</span><em>5:23 · 14 jelenet · <a href="https://youtu.be/znv4GBbIV24" target="_blank" rel="noopener">YouTube ↗</a></em></div>
+  </div>
+  <!-- videolista:vege -->
   <h3>Honnan a név?</h3>
   <p>A 3Blue1Brown (röviden 3b1b) Grant Sanderson matematikai YouTube-csatornája. A név a jobb szemére utal: szektorális heterokrómiája van, vagyis az íriszének különböző cikkei különböző színűek – nagyjából háromnegyede kék, egynegyede barna. A csatorna logója ezt a szemet ábrázolja. <a href="https://www.3blue1brown.com/faq/" target="_blank" rel="noopener">A készítő saját magyarázata (3Blue1Brown GYIK)</a></p>
   <h3>Hogyan készülnek a 3b1b stílusú videók?</h3>
