@@ -73,6 +73,10 @@ footer{max-width:60rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
       <li><a href="#dontesi-fak">Döntési fák</a></li>
       <li><a href="#hail-mary-kozertheto">Hail Mary: idődilatáció, közérthetően</a></li>
       <li><a href="#kovasz">Mi történik a kovászban?</a></li>
+      <li><a href="#legkisebb-negyzetek">A legkisebb négyzetek módszere</a></li>
+      <li><a href="#atlag-vagy-median">Átlag vagy medián?</a></li>
+      <li><a href="#simpson-paradoxon">A Simpson-paradoxon</a></li>
+      <li><a href="#pentaton-ot-forma">A pentaton skála öt formája</a></li>
       <li><a href="#3b1b-stilus">A 3b1b-stílus, és hogyan készül</a></li>
     </ul>
   </div>
@@ -489,6 +493,421 @@ footer{max-width:60rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
           <h3>Összefoglaló</h3>
           
           <p class="narracio">Összefoglalva: az enzimek bontanak, a baktériumok savanyítanak, az élesztők felfújnak, és mindegyik a másik munkájára épít. A hőmérséklet pedig két gombot tekert egyszerre: a sebességet és az egyensúlyt. Aki ezt a kettőt érti, az már nem receptet követ, hanem kovászt nevel.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="legkisebb-negyzetek">
+    <h2>A legkisebb négyzetek módszere</h2>
+    <p class="meta">3:44 · 11 jelenet · Noémi és Tamás · statisztika · <a href="https://youtu.be/AEQCj7JjloI" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">A meredekség, a négyzetösszeg és az R² a bemutatott pontokból számolt valódi érték.</p>
+    <ol class="jelenetek">
+      <li class="jel" id="legkisebb-negyzetek-01">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=0" target="_blank" rel="noopener" aria-label="Melyik egyenes a legjobb? – megnyitás a YouTube-on 0:00-nél"><img src="kepek/legkisebb-negyzetek/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Melyik egyenes a legjobb?</h3>
+          
+          <p class="narracio">Van egy pontfelhőnk: például a hirdetésre költött összeg és az eladások, hónapról hónapra. Szeretnénk egy egyenest, amely a legjobban illeszkedik rájuk. De mit jelent az, hogy a legjobban?</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-02">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=17" target="_blank" rel="noopener" aria-label="A hiba (reziduum) – megnyitás a YouTube-on 0:17-nél"><img src="kepek/legkisebb-negyzetek/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=17" target="_blank" rel="noopener">0:17</a> <span class="hang">Tamás</span></p>
+          <h3>A hiba (reziduum)</h3>
+          
+          <p class="narracio">Minden egyeneshez kiszámolhatjuk, mennyit téved az egyes pontoknál. A pont és az egyenes közötti függőleges távolság a hiba, más néven reziduum. Ezeket a hibákat kell valahogy egyetlen számmá összesíteni.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-03">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=33" target="_blank" rel="noopener" aria-label="Miért nem a hibák összege? – megnyitás a YouTube-on 0:33-nél"><img src="kepek/legkisebb-negyzetek/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=33" target="_blank" rel="noopener">0:33</a> <span class="hang">Noémi</span></p>
+          <h3>Miért nem a hibák összege?</h3>
+          
+          <p class="narracio">Miért nem adjuk össze egyszerűen a hibákat? Mert a pozitív és a negatív hibák kioltják egymást. Ennek a vízszintes egyenesnek is nulla a hibaösszege, pedig nyilvánvalóan rossz. Abszolút értékkel működne, de azzal nehéz számolni.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-04">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=54" target="_blank" rel="noopener" aria-label="Négyzetre emelés – megnyitás a YouTube-on 0:54-nél"><img src="kepek/legkisebb-negyzetek/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=54" target="_blank" rel="noopener">0:54</a> <span class="hang">Tamás</span></p>
+          <h3>Négyzetre emelés</h3>
+          
+          <p class="narracio">A megoldás: emeljük négyzetre a hibákat. A négyzet mindig pozitív, és a nagy hibákat jobban bünteti, mint a kicsiket. Szó szerint is négyzetek: minden hibához rajzolhatunk egy négyzetet. A négyzetek összterületét akarjuk a lehető legkisebbre csökkenteni.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-05">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=74" target="_blank" rel="noopener" aria-label="Mozgassuk az egyenest – megnyitás a YouTube-on 1:14-nél"><img src="kepek/legkisebb-negyzetek/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=74" target="_blank" rel="noopener">1:14</a> <span class="hang">Noémi</span></p>
+          <h3>Mozgassuk az egyenest</h3>
+          
+          <p class="narracio">Mozgassuk az egyenest! Ahogy változik a meredeksége, a négyzetek nőnek és zsugorodnak. Van egy helyzet, ahol az összterület a legkisebb. Ez a legkisebb négyzetek egyenese.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-06">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=90" target="_blank" rel="noopener" aria-label="A négyzetösszeg parabolája – megnyitás a YouTube-on 1:30-nél"><img src="kepek/legkisebb-negyzetek/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=90" target="_blank" rel="noopener">1:30</a> <span class="hang">Tamás</span></p>
+          <h3>A négyzetösszeg parabolája</h3>
+          
+          <p class="narracio">Számoljuk ki. Az egyenes egyenlete: y egyenlő m x plusz bé. A hibák négyzetösszege az m és a bé függvénye. Ha a bé-t rögzítjük, és csak a meredekséget változtatjuk, a négyzetösszeg egy parabolát rajzol ki. A parabola legalján az érintő vízszintes: ott a derivált nulla.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-07">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=113" target="_blank" rel="noopener" aria-label="Normálegyenletek – megnyitás a YouTube-on 1:53-nél"><img src="kepek/legkisebb-negyzetek/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=113" target="_blank" rel="noopener">1:53</a> <span class="hang">Noémi</span></p>
+          <h3>Normálegyenletek</h3>
+          
+          <p class="narracio">Hogy megtaláljuk az alját, deriválunk, és a deriváltat nullával tesszük egyenlővé. Ezt megtesszük az m és a bé szerint is. Két egyenletet kapunk, két ismeretlennel. Ezek a normálegyenletek.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-08">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=132" target="_blank" rel="noopener" aria-label="Átlagpont és meredekség – megnyitás a YouTube-on 2:12-nél"><img src="kepek/legkisebb-negyzetek/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=132" target="_blank" rel="noopener">2:12</a> <span class="hang">Tamás</span></p>
+          <h3>Átlagpont és meredekség</h3>
+          
+          <p class="narracio">A bé szerinti egyenletből szép következmény jön ki: a legjobb egyenes mindig átmegy az átlagponton. Ez az a pont, amelynek koordinátái az x-ek és az y-ok átlaga. Az m szerinti egyenletből pedig a meredekség jön ki: a kovariancia osztva az x varianciájával.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-09">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=152" target="_blank" rel="noopener" aria-label="Az előjelek – megnyitás a YouTube-on 2:32-nél"><img src="kepek/legkisebb-negyzetek/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=152" target="_blank" rel="noopener">2:32</a> <span class="hang">Noémi</span></p>
+          <h3>Az előjelek</h3>
+          
+          <p class="narracio">Nézzük meg a képletet működés közben. Az átlagpont négy részre osztja a síkot. Ha x és y együtt nő, a pontok többsége a jobb felső és a bal alsó részbe esik, a szorzatok pozitívak, és a meredekség is pozitív. Ha ellentétesen mozognak, negatív. Ha nincs kapcsolat, a pozitív és a negatív tagok kioltják egymást.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-10">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=181" target="_blank" rel="noopener" aria-label="R négyzet – megnyitás a YouTube-on 3:01-nél"><img src="kepek/legkisebb-negyzetek/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=181" target="_blank" rel="noopener">3:01</a> <span class="hang">Tamás</span></p>
+          <h3>R négyzet</h3>
+          
+          <p class="narracio">Mennyire jó az illeszkedés? Hasonlítsuk össze a négyzeteket az egyenesnél és a vízszintes átlagvonalnál. Az R négyzet azt mutatja meg, hogy a teljes szóródás hányad részét magyarázza meg az egyenes. Ha minden pont az egyenesen van, egy. Ha az egyenes semmivel sem jobb az átlagnál, nulla.</p>
+        </div>
+      </li>
+      <li class="jel" id="legkisebb-negyzetek-11">
+        <a class="kocka" href="https://youtu.be/AEQCj7JjloI?t=204" target="_blank" rel="noopener" aria-label="Tovább: döntési fák és neurális hálók – megnyitás a YouTube-on 3:24-nél"><img src="kepek/legkisebb-negyzetek/11.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">11.</span> <a class="idopont" href="https://youtu.be/AEQCj7JjloI?t=204" target="_blank" rel="noopener">3:24</a> <span class="hang">Noémi</span></p>
+          <h3>Tovább: döntési fák és neurális hálók</h3>
+          
+          <p class="narracio">A legkisebb négyzetek módszere Gauss és Legendre óta az adatelemzés egyik alapköve. Ugyanez az ötlet, a hibák négyzetösszegének minimalizálása, ott dolgozik a döntési fák és a neurális hálók tanításában is. Erről szólnak a következő videók.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="atlag-vagy-median">
+    <h2>Átlag vagy medián?</h2>
+    <p class="meta">3:13 · 10 jelenet · Noémi és Tamás · statisztika · <a href="https://youtu.be/U8awo3h7Ndk" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Fizetési példán; a ferde eloszlás lognormális modell.</p>
+    <ol class="jelenetek">
+      <li class="jel" id="atlag-vagy-median-01">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=0" target="_blank" rel="noopener" aria-label="Egymillió átlag, mégis kevesebbet keresnek – megnyitás a YouTube-on 0:00-nél"><img src="kepek/atlag-vagy-median/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Egymillió átlag, mégis kevesebbet keresnek</h3>
+          
+          <p class="narracio">Egy cégnél azt mondják: nálunk az átlagfizetés bruttó egymillió forint. Jól hangzik. A dolgozók többsége mégis jóval kevesebbet keres. Hogyan lehet mindkettő igaz?</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-02">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=17" target="_blank" rel="noopener" aria-label="A számok – megnyitás a YouTube-on 0:17-nél"><img src="kepek/atlag-vagy-median/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=17" target="_blank" rel="noopener">0:17</a> <span class="hang">Tamás</span></p>
+          <h3>A számok</h3>
+          
+          <p class="narracio">Nézzük a számokat. Tíz dolgozó. Kilencen négyszázötvenezer és nyolcszázezer forint között keresnek. A tizedik, az ügyvezető, négymillió-hétszázötvenezret. Az átlag: összeadjuk a fizetéseket, és elosztjuk tízzel. Pontosan egymillió.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-03">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=38" target="_blank" rel="noopener" aria-label="Az átlag mint egyensúlyi pont – megnyitás a YouTube-on 0:38-nél"><img src="kepek/atlag-vagy-median/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=38" target="_blank" rel="noopener">0:38</a> <span class="hang">Noémi</span></p>
+          <h3>Az átlag mint egyensúlyi pont</h3>
+          
+          <p class="narracio">Képzeljük el az átlagot egyensúlyi pontként. Minden fizetés egy-egy súly egy hosszú rúdon. Az átlag az a pont, ahol a rúd egyensúlyban van. Egyetlen, nagyon távoli súly is erősen maga felé billenti.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-04">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=57" target="_blank" rel="noopener" aria-label="A medián: a középső érték – megnyitás a YouTube-on 0:57-nél"><img src="kepek/atlag-vagy-median/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=57" target="_blank" rel="noopener">0:57</a> <span class="hang">Tamás</span></p>
+          <h3>A medián: a középső érték</h3>
+          
+          <p class="narracio">A medián másképp gondolkodik. Sorba rakjuk az értékeket, és megkeressük a középsőt. Páros darabszámnál a két középső átlagát vesszük: itt ez ötszázhetvenötezer forint. A dolgozók fele ennél kevesebbet, fele többet keres.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-05">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=76" target="_blank" rel="noopener" aria-label="Robusztusság – megnyitás a YouTube-on 1:16-nél"><img src="kepek/atlag-vagy-median/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=76" target="_blank" rel="noopener">1:16</a> <span class="hang">Noémi</span></p>
+          <h3>Robusztusság</h3>
+          
+          <p class="narracio">Mi történik, ha az ügyvezető fizetése a duplájára nő? Az átlag egymillióról közel másfél millióra ugrik. A medián meg sem moccan. Ezt úgy mondjuk: a medián robusztus, a kiugró értékek nem rángatják.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-06">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=96" target="_blank" rel="noopener" aria-label="Ferde eloszlások – megnyitás a YouTube-on 1:36-nél"><img src="kepek/atlag-vagy-median/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=96" target="_blank" rel="noopener">1:36</a> <span class="hang">Tamás</span></p>
+          <h3>Ferde eloszlások</h3>
+          
+          <p class="narracio">Ez nem kivétel, hanem gyakori minta. Jövedelmek, lakásárak, vásárlási összegek, várakozási idők: ezek eloszlása jobbra ferde. A többség a kis értékeknél tömörül, és egy hosszú farok nyúlik a nagy értékek felé.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-07">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=113" target="_blank" rel="noopener" aria-label="Módusz, medián, átlag – megnyitás a YouTube-on 1:53-nél"><img src="kepek/atlag-vagy-median/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=113" target="_blank" rel="noopener">1:53</a> <span class="hang">Noémi</span></p>
+          <h3>Módusz, medián, átlag</h3>
+          
+          <p class="narracio">Egy jobbra ferde eloszlásnál a módusz, vagyis a leggyakoribb érték, van a legbal oldalon. Utána jön a medián. Az átlagot pedig a hosszú farok húzza a legmesszebb jobbra. Szimmetrikus eloszlásnál a három egybeesik.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-08">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=133" target="_blank" rel="noopener" aria-label="Melyiket használjuk? – megnyitás a YouTube-on 2:13-nél"><img src="kepek/atlag-vagy-median/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=133" target="_blank" rel="noopener">2:13</a> <span class="hang">Tamás</span></p>
+          <h3>Melyiket használjuk?</h3>
+          
+          <p class="narracio">Melyiket használjuk? Ha a tipikus esetre vagyunk kíváncsiak, például hogy egy átlagos vásárló mennyit költ, a medián a jobb. Ha az összegre, például a teljes bevételre, akkor az átlag. Az átlag szorozva a darabszámmal ugyanis pontosan az összeget adja.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-09">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=152" target="_blank" rel="noopener" aria-label="Nézzük meg mindkettőt – megnyitás a YouTube-on 2:32-nél"><img src="kepek/atlag-vagy-median/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=152" target="_blank" rel="noopener">2:32</a> <span class="hang">Noémi</span></p>
+          <h3>Nézzük meg mindkettőt</h3>
+          
+          <p class="narracio">A legjobb, ha mindkettőt megnézzük. Ha az átlag és a medián közel van egymáshoz, az eloszlás nagyjából szimmetrikus. Ha az átlag jóval nagyobb, kiugró értékek vagy hosszú farok van az adatokban, és érdemes megnézni, kik ők.</p>
+        </div>
+      </li>
+      <li class="jel" id="atlag-vagy-median-10">
+        <a class="kocka" href="https://youtu.be/U8awo3h7Ndk?t=172" target="_blank" rel="noopener" aria-label="Összefoglalás – megnyitás a YouTube-on 2:52-nél"><img src="kepek/atlag-vagy-median/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/U8awo3h7Ndk?t=172" target="_blank" rel="noopener">2:52</a> <span class="hang">Tamás</span></p>
+          <h3>Összefoglalás</h3>
+          
+          <p class="narracio">Összefoglalva: az átlag egyensúlyi pont, amelyet a szélsőséges értékek elhúznak. A medián a középső érték, amely ellenáll nekik. Egyik sem jobb a másiknál, csak más kérdésre válaszolnak. Ha legközelebb átlagról hallasz, kérdezd meg: és mennyi a medián?</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="simpson-paradoxon">
+    <h2>A Simpson-paradoxon</h2>
+    <p class="meta">3:04 · 10 jelenet · Noémi és Tamás · statisztika · <a href="https://youtu.be/KiODGQWArGQ" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Valódi adatok: Charig és mtsai, British Medical Journal, 1986 (vesekő-kezelések).</p>
+    <ol class="jelenetek">
+      <li class="jel" id="simpson-paradoxon-01">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=0" target="_blank" rel="noopener" aria-label="Melyik kezelés jobb? – megnyitás a YouTube-on 0:00-nél"><img src="kepek/simpson-paradoxon/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Melyik kezelés jobb?</h3>
+          
+          <p class="narracio">Két kezelést hasonlítunk össze vesekőre. Az összesített adatok szerint a bé kezelés a sikeresebb: nyolcvanhárom százalék a hetvennyolccal szemben. Egyértelmű, nem? Nézzük meg közelebbről.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-02">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=18" target="_blank" rel="noopener" aria-label="Az összesített adatok – megnyitás a YouTube-on 0:18-nél"><img src="kepek/simpson-paradoxon/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=18" target="_blank" rel="noopener">0:18</a> <span class="hang">Tamás</span></p>
+          <h3>Az összesített adatok</h3>
+          
+          <p class="narracio">Mindkét kezelést háromszázötven betegen próbálták ki. Az á kezelésnél kétszázhetvenhárom sikeres eset volt, a bé-nél kétszáznyolcvankilenc. Ez hetvennyolc, illetve nyolcvanhárom százalék.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-03">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=33" target="_blank" rel="noopener" aria-label="Kis kövek – megnyitás a YouTube-on 0:33-nél"><img src="kepek/simpson-paradoxon/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=33" target="_blank" rel="noopener">0:33</a> <span class="hang">Noémi</span></p>
+          <h3>Kis kövek</h3>
+          
+          <p class="narracio">Csakhogy a kövek mérete különböző. Bontsuk szét a betegeket kis és nagy kövűekre. Kis köveknél az á kezelés kilencvenhárom, a bé nyolcvanhét százalékban sikeres. Itt az á a jobb.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-04">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=51" target="_blank" rel="noopener" aria-label="Nagy kövek: a paradoxon – megnyitás a YouTube-on 0:51-nél"><img src="kepek/simpson-paradoxon/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=51" target="_blank" rel="noopener">0:51</a> <span class="hang">Tamás</span></p>
+          <h3>Nagy kövek: a paradoxon</h3>
+          
+          <p class="narracio">Nagy köveknél az á hetvenhárom, a bé hatvankilenc százalékban sikeres. Itt is az á a jobb. Mindkét csoportban az á nyer, összesítve mégis a bé. Ez a Simpson-paradoxon.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-05">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=66" target="_blank" rel="noopener" aria-label="Ki melyik kezelést kapta? – megnyitás a YouTube-on 1:06-nél"><img src="kepek/simpson-paradoxon/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=66" target="_blank" rel="noopener">1:06</a> <span class="hang">Noémi</span></p>
+          <h3>Ki melyik kezelést kapta?</h3>
+          
+          <p class="narracio">Hogyan lehetséges ez? A kulcs az, hogy ki melyik kezelést kapta. A nehezebb, nagy kövű esetek háromnegyede az á kezelést kapta. A könnyebb, kis kövű esetek többsége pedig a bé-t.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-06">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=84" target="_blank" rel="noopener" aria-label="Súlyozott átlag – megnyitás a YouTube-on 1:24-nél"><img src="kepek/simpson-paradoxon/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=84" target="_blank" rel="noopener">1:24</a> <span class="hang">Tamás</span></p>
+          <h3>Súlyozott átlag</h3>
+          
+          <p class="narracio">Az összesített arány valójában súlyozott átlag. Az á kezelés összesített aránya főleg a nehéz esetek hetvenhárom százalékából áll össze. A bé-é főleg a könnyű esetek nyolcvanhét százalékából. Nem a kezeléseket hasonlítottuk össze, hanem a betegek összetételét.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-07">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=105" target="_blank" rel="noopener" aria-label="Rajzban – megnyitás a YouTube-on 1:45-nél"><img src="kepek/simpson-paradoxon/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=105" target="_blank" rel="noopener">1:45</a> <span class="hang">Noémi</span></p>
+          <h3>Rajzban</h3>
+          
+          <p class="narracio">Rajzoljuk le! Minden kezelésnek két pontja van: a kis és a nagy kövűek sikeraránya. Az összesített arány a kettő között van, mégpedig ahhoz közelebb, ahol több beteg van. Ezért kerülhet a bé összesítése az á fölé, pedig mindkét csoportban alatta van.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-08">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=127" target="_blank" rel="noopener" aria-label="Zavaró változó – megnyitás a YouTube-on 2:07-nél"><img src="kepek/simpson-paradoxon/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=127" target="_blank" rel="noopener">2:07</a> <span class="hang">Tamás</span></p>
+          <h3>Zavaró változó</h3>
+          
+          <p class="narracio">Az ilyen háttérváltozót zavaró változónak nevezzük. Egyszerre hat arra, ki melyik csoportba kerül, és arra is, mi lesz az eredmény. Itt a kő mérete: a súlyos esetekre az orvosok inkább a hatékonyabb, de megterhelőbb á kezelést választották.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-09">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=145" target="_blank" rel="noopener" aria-label="Az üzleti életben – megnyitás a YouTube-on 2:25-nél"><img src="kepek/simpson-paradoxon/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=145" target="_blank" rel="noopener">2:25</a> <span class="hang">Noémi</span></p>
+          <h3>Az üzleti életben</h3>
+          
+          <p class="narracio">Ez nem csak az orvostudományban fordul elő. Két értékesítő sikeraránya, két kampány átkattintási aránya, két hotel elégedettségi pontszáma. Ha a csoportok összetétele eltér, az összesített szám félrevezethet.</p>
+        </div>
+      </li>
+      <li class="jel" id="simpson-paradoxon-10">
+        <a class="kocka" href="https://youtu.be/KiODGQWArGQ?t=164" target="_blank" rel="noopener" aria-label="A tanulság – megnyitás a YouTube-on 2:44-nél"><img src="kepek/simpson-paradoxon/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/KiODGQWArGQ?t=164" target="_blank" rel="noopener">2:44</a> <span class="hang">Tamás</span></p>
+          <h3>A tanulság</h3>
+          
+          <p class="narracio">A tanulság: mielőtt két összesített arányt összehasonlítasz, kérdezd meg, hasonló-e a két csoport összetétele. Ha nem, bontsd szét a fontos háttérváltozó szerint. És ha a bontás mást mond, mint az összesítés, általában a bontás áll közelebb az igazsághoz.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="pentaton-ot-forma">
+    <h2>A pentaton skála öt formája</h2>
+    <p class="meta">3:34 · 12 jelenet · Noémi és Tamás · gitár, zeneelmélet · <a href="https://youtu.be/UqNv2mZWvU4" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Á-moll pentaton; a gitárhang szintetizált (Karplus–Strong).</p>
+    <ol class="jelenetek">
+      <li class="jel" id="pentaton-ot-forma-01">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=0" target="_blank" rel="noopener" aria-label="Pentaton: öt hang, sehol egy rossz – megnyitás a YouTube-on 0:00-nél"><img src="kepek/pentaton-ot-forma/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Noémi</span></p>
+          <h3>Pentaton: öt hang, sehol egy rossz</h3>
+          
+          <p class="narracio">Ha egy gitáros improvizálni kezd, nagy eséllyel a pentaton skálához nyúl. [[3.9]] Öt hang, és szinte egyik sem szól rosszul. De hogyan találjuk meg a fogólap teljes hosszán?</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-02">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=19" target="_blank" rel="noopener" aria-label="Az öt hang – megnyitás a YouTube-on 0:19-nél"><img src="kepek/pentaton-ot-forma/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=19" target="_blank" rel="noopener">0:19</a> <span class="hang">Tamás</span></p>
+          <h3>Az öt hang</h3>
+          
+          <p class="narracio">A pentaton skála öt hangból áll. Á mollban: á, cé, dé, é, gé. [[3.8]] A teljes moll skálából kimarad a második és a hatodik fok, a két legfeszültebb hang.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-03">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=36" target="_blank" rel="noopener" aria-label="Tabulatúra – megnyitás a YouTube-on 0:36-nél"><img src="kepek/pentaton-ot-forma/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=36" target="_blank" rel="noopener">0:36</a> <span class="hang">Noémi</span></p>
+          <h3>Tabulatúra</h3>
+          
+          <p class="narracio">Egy gyors szó a tabulatúráról. A hat vonal a gitár hat húrja, felül a legvékonyabb. A szám azt mondja meg, melyik bundot kell lefogni. A nulla az üres húr.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-04">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=52" target="_blank" rel="noopener" aria-label="1. forma – megnyitás a YouTube-on 0:52-nél"><img src="kepek/pentaton-ot-forma/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=52" target="_blank" rel="noopener">0:52</a> <span class="hang">Tamás</span></p>
+          <h3>1. forma</h3>
+          
+          <p class="narracio">Az első forma az ötödik bundnál van, és az á hangra épül. Minden húron két hang, a mutatóujj és a gyűrűs- vagy kisujj dolgozik. [[3.7]] Ez a legismertebb forma: a sárga pontok az á hangok.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-05">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=71" target="_blank" rel="noopener" aria-label="2. forma – megnyitás a YouTube-on 1:11-nél"><img src="kepek/pentaton-ot-forma/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=71" target="_blank" rel="noopener">1:11</a> <span class="hang">Noémi</span></p>
+          <h3>2. forma</h3>
+          
+          <p class="narracio">A második forma ott kezdődik, ahol az első véget ér. Az első forma felső hangjai lesznek a második alsó hangjai. [[3.7]] A két forma egy közös hangsoron osztozik.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-06">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=90" target="_blank" rel="noopener" aria-label="3. forma – megnyitás a YouTube-on 1:30-nél"><img src="kepek/pentaton-ot-forma/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=90" target="_blank" rel="noopener">1:30</a> <span class="hang">Tamás</span></p>
+          <h3>3. forma</h3>
+          
+          <p class="narracio">A harmadik forma a kilencedik és tizenharmadik bund között fekszik. [[3.7]] Itt a gé és a há húr közti eltolás miatt egy hang egy bunddal feljebb csúszik.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-07">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=106" target="_blank" rel="noopener" aria-label="4. forma – megnyitás a YouTube-on 1:46-nél"><img src="kepek/pentaton-ot-forma/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=106" target="_blank" rel="noopener">1:46</a> <span class="hang">Noémi</span></p>
+          <h3>4. forma</h3>
+          
+          <p class="narracio">A negyedik forma a tizenkettedik bundtól indul, ahol a fogólap újrakezdődik. [[3.7]] A tizenkettedik bund egy oktáv: itt minden hang ugyanaz, mint az üres húron.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-08">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=124" target="_blank" rel="noopener" aria-label="5. forma – megnyitás a YouTube-on 2:04-nél"><img src="kepek/pentaton-ot-forma/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=124" target="_blank" rel="noopener">2:04</a> <span class="hang">Tamás</span></p>
+          <h3>5. forma</h3>
+          
+          <p class="narracio">Az ötödik forma a tizennegyedik bund környékén van. [[3.7]] Utána ismét az első forma jön, egy oktávval feljebb, a tizenhetedik bundnál.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-09">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=139" target="_blank" rel="noopener" aria-label="Az öt forma együtt – megnyitás a YouTube-on 2:19-nél"><img src="kepek/pentaton-ot-forma/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=139" target="_blank" rel="noopener">2:19</a> <span class="hang">Noémi</span></p>
+          <h3>Az öt forma együtt</h3>
+          
+          <p class="narracio">Rakjuk össze! Az öt forma láncként fedi le a teljes fogólapot, mindegyik átfed a szomszédjával. [[3.6]] Ha a formák közti átmeneteket gyakorlod, az egész nyakon szabadon mozoghatsz.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-10">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=159" target="_blank" rel="noopener" aria-label="Más hangnem: eltolás – megnyitás a YouTube-on 2:39-nél"><img src="kepek/pentaton-ot-forma/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=159" target="_blank" rel="noopener">2:39</a> <span class="hang">Tamás</span></p>
+          <h3>Más hangnem: eltolás</h3>
+          
+          <p class="narracio">Más hangnemben? Az egész mintát eltoljuk. Ha az alaphang á helyett cé, minden három bunddal feljebb kerül. [[3.7]] A formák ugyanazok, csak máshol kezdődnek.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-11">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=177" target="_blank" rel="noopener" aria-label="Cé-dúr pentaton – megnyitás a YouTube-on 2:57-nél"><img src="kepek/pentaton-ot-forma/11.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">11.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=177" target="_blank" rel="noopener">2:57</a> <span class="hang">Noémi</span></p>
+          <h3>Cé-dúr pentaton</h3>
+          
+          <p class="narracio">És egy titok: ugyanez az öt forma a cé dúr pentaton is. Ugyanazok a hangok, csak a cé a középpont. [[3.8]] Az á moll és a cé dúr pentaton rokonok, ahogy az á moll és a cé dúr hangnem is.</p>
+        </div>
+      </li>
+      <li class="jel" id="pentaton-ot-forma-12">
+        <a class="kocka" href="https://youtu.be/UqNv2mZWvU4?t=198" target="_blank" rel="noopener" aria-label="Összefoglalás – megnyitás a YouTube-on 3:18-nél"><img src="kepek/pentaton-ot-forma/12.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">12.</span> <a class="idopont" href="https://youtu.be/UqNv2mZWvU4?t=198" target="_blank" rel="noopener">3:18</a> <span class="hang">Tamás</span></p>
+          <h3>Összefoglalás</h3>
+          
+          <p class="narracio">Összefoglalva: öt forma, egymásba kapcsolódva, a fogólap teljes hosszán. A sárga alaphangok mutatják, hol vagy. A formák a CAGED-rendszer akkordfogásaira ülnek rá, de ez már egy következő videó témája.</p>
         </div>
       </li>
     </ol>
