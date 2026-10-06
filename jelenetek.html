@@ -77,6 +77,8 @@ footer{max-width:60rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
       <li><a href="#atlag-vagy-median">Átlag vagy medián?</a></li>
       <li><a href="#simpson-paradoxon">A Simpson-paradoxon</a></li>
       <li><a href="#pentaton-ot-forma">A pentaton skála öt formája</a></li>
+      <li><a href="#beszelgetes-az-adatokkal">Beszélgetés az adatokkal: miért kell a szemantikai réteg?</a></li>
+      <li><a href="#haversine">Ugyanaz a hely? Fuzzy név + haversine távolság</a></li>
       <li><a href="#3b1b-stilus">A 3b1b-stílus, és hogyan készül</a></li>
     </ul>
   </div>
@@ -908,6 +910,236 @@ footer{max-width:60rem;margin:0 auto;padding:0 1.5rem 3rem;color:var(--muted);fo
           <h3>Összefoglalás</h3>
           
           <p class="narracio">Összefoglalva: öt forma, egymásba kapcsolódva, a fogólap teljes hosszán. A sárga alaphangok mutatják, hol vagy. A formák a CAGED-rendszer akkordfogásaira ülnek rá, de ez már egy következő videó témája.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="beszelgetes-az-adatokkal">
+    <h2>Beszélgetés az adatokkal: miért kell a szemantikai réteg?</h2>
+    <p class="meta">3:06 · 10 jelenet · Tamás · adatelemzés, üzlet · <a href="https://youtu.be/j6DaqW9r-fE" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Az első videó (1. kiadás); a jelenetidők a jelenetklipekből és a hangból számolva.</p>
+    <ol class="jelenetek">
+      <li class="jel" id="beszelgetes-az-adatokkal-01">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=0" target="_blank" rel="noopener" aria-label="A legegyszerűbb kérdés – megnyitás a YouTube-on 0:00-nél"><img src="kepek/beszelgetes-az-adatokkal/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=0" target="_blank" rel="noopener">0:00</a> <span class="hang">Tamás</span></p>
+          <h3>A legegyszerűbb kérdés</h3>
+          <p class="reszlet">és miért nem tudja megválaszolni az adatbázis</p>
+          <p class="narracio">Képzeld el a világ legegyszerűbb kérdését: hány aktív ügyfelünk volt júniusban? Egy kollégád rávágja a választ. Egy adatbázis nem. Mert az adatbázis nem tudja, mit jelent az, hogy aktív.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-02">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=16" target="_blank" rel="noopener" aria-label="A naiv megoldás: írja meg az SQL-t a nyelvi modell – megnyitás a YouTube-on 0:16-nél"><img src="kepek/beszelgetes-az-adatokkal/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=16" target="_blank" rel="noopener">0:16</a> <span class="hang">Tamás</span></p>
+          <h3>A naiv megoldás: írja meg az SQL-t a nyelvi modell</h3>
+          
+          <p class="narracio">Kézenfekvőnek tűnik a megoldás: odaadjuk a kérdést egy nyelvi modellnek, mellé a táblák listáját, és írja meg ő az SQL-t. Ez működik is, amíg a kérdés egyszerű.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-03">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=29" target="_blank" rel="noopener" aria-label="A modell nem tudhatja a definíciót, ezért tippel – megnyitás a YouTube-on 0:29-nél"><img src="kepek/beszelgetes-az-adatokkal/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=29" target="_blank" rel="noopener">0:29</a> <span class="hang">Tamás</span></p>
+          <h3>A modell nem tudhatja a definíciót, ezért tippel</h3>
+          
+          <p class="narracio">Csakhogy a modell nem tudhatja, hogy nálatok az aktív ügyfél az, akinek volt tranzakciója az elmúlt tizenkét hónapban. Ezért tippel. És ha tippel, akkor holnap másképp fog tippelni.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-04">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=43" target="_blank" rel="noopener" aria-label="A hibás szám ugyanúgy néz ki, mint a helyes – megnyitás a YouTube-on 0:43-nél"><img src="kepek/beszelgetes-az-adatokkal/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=43" target="_blank" rel="noopener">0:43</a> <span class="hang">Tamás</span></p>
+          <h3>A hibás szám ugyanúgy néz ki, mint a helyes</h3>
+          
+          <p class="narracio">Itt jön a kellemetlen rész. A hibás szám pontosan ugyanúgy néz ki, mint a helyes. Nincs hibaüzenet, a lekérdezés lefut, a válasz magabiztos. Senki nem veszi észre, amíg valaki utána nem számol.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-05">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=60" target="_blank" rel="noopener" aria-label="A szemantikai réteg beszúrása – megnyitás a YouTube-on 1:00-nél"><img src="kepek/beszelgetes-az-adatokkal/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=60" target="_blank" rel="noopener">1:00</a> <span class="hang">Tamás</span></p>
+          <h3>A szemantikai réteg beszúrása</h3>
+          
+          <p class="narracio">A megoldás nem az, hogy okosabb modellt keresünk. Hanem az, hogy a modell és az adatbázis közé beteszünk egy réteget. Ez a szemantikai réteg.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-06">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=72" target="_blank" rel="noopener" aria-label="Mi van a rétegben – megnyitás a YouTube-on 1:12-nél"><img src="kepek/beszelgetes-az-adatokkal/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=72" target="_blank" rel="noopener">1:12</a> <span class="hang">Tamás</span></p>
+          <h3>Mi van a rétegben</h3>
+          <p class="reszlet">single source of truth</p>
+          <p class="narracio">Itt egyetlen helyen le van írva, mit jelentenek a szavak. Aktív ügyfél az, akinek a státusza program tag, és volt tranzakciója az elmúlt tizenkét hónapban. Mellé azt is leírjuk, melyik táblából jön, hogyan kapcsolódik a többihez, és ki láthatja. Ez a definíció innentől nem a promptban él, és nem valakinek a fejében. Ezt hívják single source of truth-nak.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-07">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=99" target="_blank" rel="noopener" aria-label="A teljes lánc végigjárása egy kérdéssel – megnyitás a YouTube-on 1:39-nél"><img src="kepek/beszelgetes-az-adatokkal/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=99" target="_blank" rel="noopener">1:39</a> <span class="hang">Tamás</span></p>
+          <h3>A teljes lánc végigjárása egy kérdéssel</h3>
+          
+          <p class="narracio">Nézzük végig, mi történik egy kérdéssel. A felhasználó kérdez. A modell nem SQL-t ír, hanem szándékot fordít: melyik mutató, milyen bontásban, milyen időszakra. A szemantikai réteg ebből állítja össze a lekérdezést, kizárólag abból, amit ismer és engedélyez. Az adatbázis lefuttatja, és visszaad néhány sort. A modell pedig csak a legvégén lép be újra: a számokból mondatot csinál.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-08">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=130" target="_blank" rel="noopener" aria-label="Mit nyerünk: ugyanaz a kérdés, ugyanaz a szám – megnyitás a YouTube-on 2:10-nél"><img src="kepek/beszelgetes-az-adatokkal/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=130" target="_blank" rel="noopener">2:10</a> <span class="hang">Tamás</span></p>
+          <h3>Mit nyerünk: ugyanaz a kérdés, ugyanaz a szám</h3>
+          
+          <p class="narracio">Mit nyerünk ezzel? Ugyanaz a kérdés mindig ugyanazt a számot adja. A válasz visszavezethető a lefutott lekérdezésig. És ha változik a definíció, mondjuk tizenkét hónap helyett hat, akkor egy helyen kell átírni, és minden válasz vele változik.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-09">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=149" target="_blank" rel="noopener" aria-label="A nehezebb fele: meg kell egyezni, mit jelent egy szó – megnyitás a YouTube-on 2:29-nél"><img src="kepek/beszelgetes-az-adatokkal/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=149" target="_blank" rel="noopener">2:29</a> <span class="hang">Tamás</span></p>
+          <h3>A nehezebb fele: meg kell egyezni, mit jelent egy szó</h3>
+          
+          <p class="narracio">A technológia ebben a könnyebbik fele. A nehezebb az, hogy a cégen belül meg kell egyezni abban, mit jelent egy szó. Mert ha a sales, a marketing és a kontrolling mást ért aktív ügyfél alatt, akkor nem rendszert kell építeni, hanem előbb meg kell beszélni.</p>
+        </div>
+      </li>
+      <li class="jel" id="beszelgetes-az-adatokkal-10">
+        <a class="kocka" href="https://youtu.be/j6DaqW9r-fE?t=169" target="_blank" rel="noopener" aria-label="Mi kell hozzá a gyakorlatban – megnyitás a YouTube-on 2:49-nél"><img src="kepek/beszelgetes-az-adatokkal/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/j6DaqW9r-fE?t=169" target="_blank" rel="noopener">2:49</a> <span class="hang">Tamás</span></p>
+          <h3>Mi kell hozzá a gyakorlatban</h3>
+          
+          <p class="narracio">Mi kell hozzá? Húsz-harminc jól megválasztott mutató. Egy gazda, aki karbantartja őket. És néhány tucat valódi kérdés, amin tesztelni lehet. Ennyi kell ahhoz, hogy a kérdezés tényleg könnyű legyen.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="video" id="haversine">
+    <h2>Ugyanaz a hely? Fuzzy név + haversine távolság</h2>
+    <p class="meta">5:08 · 14 jelenet · Noémi és Tamás · adatelemzés, geoadat · <a href="https://youtu.be/sAgXkCoOFdk" target="_blank" rel="noopener">YouTube ↗</a></p>
+    <p class="megj">Egyetlen Manim-jelenet szakaszokkal; a kezdőidők a jelenet száraz futtatásából (szakasz_idok.json).</p>
+    <ol class="jelenetek">
+      <li class="jel" id="haversine-01">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=5" target="_blank" rel="noopener" aria-label="Két adatbázis, ugyanaz a bolt? – megnyitás a YouTube-on 0:05-nél"><img src="kepek/haversine/01.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">1.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=5" target="_blank" rel="noopener">0:05</a> <span class="hang">Noémi</span></p>
+          <h3>Két adatbázis, ugyanaz a bolt?</h3>
+          
+          <p class="narracio">Van két adatbázisunk ugyanazokról az üzletekről. Az egyikben így szerepel egy bolt: TESCO Hipermarket Budaörs Kft. A másikban így: Tesco Budaors hiper. A koordináták is eltérnek pár tíz méterrel. Ugyanaz a hely?</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-02">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=27" target="_blank" rel="noopener" aria-label="Két jel: név és távolság – megnyitás a YouTube-on 0:27-nél"><img src="kepek/haversine/02.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">2.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=27" target="_blank" rel="noopener">0:27</a> <span class="hang">Tamás</span></p>
+          <h3>Két jel: név és távolság</h3>
+          
+          <p class="narracio">Ember számára ez ránézésre egyértelmű. Egy gépnek viszont két külön jelet kell összeraknia: mennyire hasonlít a név, és milyen messze van a két pont. Ha csak az egyiket nézzük, hamar hibázunk.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-03">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=44" target="_blank" rel="noopener" aria-label="Miért kell mindkettő? – megnyitás a YouTube-on 0:44-nél"><img src="kepek/haversine/03.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">3.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=44" target="_blank" rel="noopener">0:44</a> <span class="hang">Noémi</span></p>
+          <h3>Miért kell mindkettő?</h3>
+          
+          <p class="narracio">Ha csak a nevet nézzük, minden Spar egyformának tűnik, akkor is, ha kétszáz kilométerre vannak egymástól. Ha csak a távolságot, akkor egy bevásárlóközpont összes boltja ugyanaz a hely lesz. A két jelet tehát együtt kell használni. Kezdjük a nevekkel.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-04">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=69" target="_blank" rel="noopener" aria-label="Tisztítás és szinonimák – megnyitás a YouTube-on 1:09-nél"><img src="kepek/haversine/04.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">4.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=69" target="_blank" rel="noopener">1:09</a> <span class="hang">Tamás</span></p>
+          <h3>Tisztítás és szinonimák</h3>
+          
+          <p class="narracio">Először tisztítunk. Kisbetűsítünk, és eltávolítjuk a semmitmondó szavakat, mint a Kft vagy a Zrt. A szinonimákat egy szótárral egységesítjük: a hipermarketből például hiper lesz.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-05">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=84" target="_blank" rel="noopener" aria-label="Token sort: szavak ábécérendben – megnyitás a YouTube-on 1:24-nél"><img src="kepek/haversine/05.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">5.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=84" target="_blank" rel="noopener">1:24</a> <span class="hang">Noémi</span></p>
+          <h3>Token sort: szavak ábécérendben</h3>
+          
+          <p class="narracio">Most már ugyanazok a szavak szerepelnek, csak más sorrendben. Ezért a szavakat ábécérendbe tesszük, és csak utána hasonlítjuk össze őket. Ez a token sort módszer.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-06">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=99" target="_blank" rel="noopener" aria-label="Levenshtein-távolság – megnyitás a YouTube-on 1:39-nél"><img src="kepek/haversine/06.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">6.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=99" target="_blank" rel="noopener">1:39</a> <span class="hang">Tamás</span></p>
+          <h3>Levenshtein-távolság</h3>
+          
+          <p class="narracio">Egyetlen különbség maradt: az egyik helyen hiányzik az ékezet. A Levenshtein-távolság azt méri, hány betűt kell beszúrni, törölni vagy kicserélni, hogy az egyik szövegből a másik legyen. Itt egyetlen csere elég, tehát a távolság egy. Ebből hasonlósági pontszámot képzünk: egy mínusz a távolság, osztva a hosszabb szöveg hosszával. Ez nulla egész kilencvenöt.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-07">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=129" target="_blank" rel="noopener" aria-label="A Föld nem sík – megnyitás a YouTube-on 2:09-nél"><img src="kepek/haversine/07.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">7.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=129" target="_blank" rel="noopener">2:09</a> <span class="hang">Noémi</span></p>
+          <h3>A Föld nem sík</h3>
+          
+          <p class="narracio">Most jöjjön a távolság. Kézenfekvő lenne a fokokat síkbeli koordinátaként kezelni, és Pitagorasszal számolni. Csakhogy a Föld gömb, és a hosszúsági körök a pólusok felé összefutnak. Az egyenlítőn egy fok hosszúság nagyjából száztizenegy kilométer, Budapest szélességén már csak hetvenöt.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-08">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=154" target="_blank" rel="noopener" aria-label="A haversine-képlet – megnyitás a YouTube-on 2:34-nél"><img src="kepek/haversine/08.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">8.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=154" target="_blank" rel="noopener">2:34</a> <span class="hang">Tamás</span></p>
+          <h3>A haversine-képlet</h3>
+          
+          <p class="narracio">Ezért a gömbi távolságot a haversine képlettel számoljuk. A haversine függvény a fél szög szinuszának négyzete. Az a tag a szélességkülönbségből és a hosszúságkülönbségből áll össze. A hosszúsági tagot a két szélesség koszinusza súlyozza. Pontosan ez kezeli az összefutó hosszúsági köröket. Végül a középponti szöget megszorozzuk a Föld sugarával, ami körülbelül hatezer-háromszázhetvenegy kilométer.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-09">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=186" target="_blank" rel="noopener" aria-label="Miért éppen ez a forma? – megnyitás a YouTube-on 3:06-nél"><img src="kepek/haversine/09.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">9.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=186" target="_blank" rel="noopener">3:06</a> <span class="hang">Noémi</span></p>
+          <h3>Miért éppen ez a forma?</h3>
+          
+          <p class="narracio">Miért éppen ez a forma? Mert néhány méteres távolságoknál is pontos marad, míg a koszinuszos változat kerekítési hibákba fut. A két Tesco-pontunk között a haversine körülbelül kilencven métert ad.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-10">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=206" target="_blank" rel="noopener" aria-label="Két szám egy síkon – megnyitás a YouTube-on 3:26-nél"><img src="kepek/haversine/10.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">10.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=206" target="_blank" rel="noopener">3:26</a> <span class="hang">Tamás</span></p>
+          <h3>Két szám egy síkon</h3>
+          
+          <p class="narracio">Most minden jelölt párnak két száma van: névhasonlóság és távolság. Tegyük őket egy síkra. Vízszintesen a távolság, függőlegesen a névhasonlóság. A valódi egyezések a bal felső sarokban gyűlnek: közel vannak, és hasonló a nevük.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-11">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=226" target="_blank" rel="noopener" aria-label="A kettő egy pontszámban – megnyitás a YouTube-on 3:46-nél"><img src="kepek/haversine/11.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">11.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=226" target="_blank" rel="noopener">3:46</a> <span class="hang">Noémi</span></p>
+          <h3>A kettő egy pontszámban</h3>
+          
+          <p class="narracio">A távolságot is pontszámmá alakítjuk, egy lecsengő függvénnyel: a közelben egyhez közeli, messzebb nullához tart. A végső pontszám a kettő súlyozott átlaga. Ahol ez átlépi a küszöböt, ott egyezést mondunk. A Tesco-párunk nyolcvankét százalékot kap, tehát egyezés.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-12">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=250" target="_blank" rel="noopener" aria-label="Ki esik ki? – megnyitás a YouTube-on 4:10-nél"><img src="kepek/haversine/12.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">12.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=250" target="_blank" rel="noopener">4:10</a> <span class="hang">Tamás</span></p>
+          <h3>Ki esik ki?</h3>
+          
+          <p class="narracio">A távoli Spar-ok kiesnek, mert a távolsági pontszámuk szinte nulla. A bevásárlóközpont boltjai is kiesnek, mert a nevük nem hasonlít.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-13">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=264" target="_blank" rel="noopener" aria-label="Skálázás: tízezer hely – megnyitás a YouTube-on 4:24-nél"><img src="kepek/haversine/13.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">13.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=264" target="_blank" rel="noopener">4:24</a> <span class="hang">Noémi</span></p>
+          <h3>Skálázás: tízezer hely</h3>
+          
+          <p class="narracio">Még egy gond maradt. Ha mindkét listában tízezer hely van, az százmillió összehasonlítás. A megoldás: először csak a közeli pontokat párosítjuk, például rácsra osztva a térképet, vagy egy haversine metrikájú BallTree indexszel. A drága névösszehasonlítás így csak a szomszédos jelölteken fut.</p>
+        </div>
+      </li>
+      <li class="jel" id="haversine-14">
+        <a class="kocka" href="https://youtu.be/sAgXkCoOFdk?t=290" target="_blank" rel="noopener" aria-label="Összefoglalás – megnyitás a YouTube-on 4:50-nél"><img src="kepek/haversine/14.jpg" width="480" height="270" loading="lazy" alt=""></a>
+        <div class="jel-szoveg">
+          <p class="jel-fej"><span class="sorszam">14.</span> <a class="idopont" href="https://youtu.be/sAgXkCoOFdk?t=290" target="_blank" rel="noopener">4:50</a> <span class="hang">Tamás</span></p>
+          <h3>Összefoglalás</h3>
+          
+          <p class="narracio">Összefoglalva: tisztított, sorba rendezett nevek, Levenshtein-hasonlóság, haversine-távolság, és a kettő súlyozott kombinációja. Két gyenge jelből így egy megbízható döntés lesz.</p>
         </div>
       </li>
     </ol>
